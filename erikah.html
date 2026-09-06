@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Initiate Handover | TrustRida</title>
+  <style>
+    :root {
+      --primary-green: #087F5B;
+      --primary-green-hover: #066347;
+      --light-green-bg: #E6FCF5;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-color: #0f172a;
+      --muted-text: #64748b;
+      --border-color: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header & Nav Styles */
+    .site-header {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      width: 100%;
+      padding: 16px 24px;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-green);
+      text-decoration: none;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      color: var(--muted-text);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--primary-green);
+      font-weight: 600;
+    }
+
+    .nav-button {
+      background-color: var(--primary-green);
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    .nav-button:hover {
+      background-color: var(--primary-green-hover);
+    }
+
+    /* Main Section Styles */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .form-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      max-width: 480px;
+      width: 100%;
+      padding: 32px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-header {
+      margin-bottom: 24px;
+    }
+
+    .form-header h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .form-header p {
+      color: var(--muted-text);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .trust-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--light-green-bg);
+      border: 1px solid #B2F2BB;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--primary-green);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: var(--text-color);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      border-color: var(--primary-green);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: var(--primary-green);
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--primary-green-hover);
+    }
+
+    .security-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted-text);
+      margin-top: 12px;
+    }
+
+    /* Footer Styles */
+    .site-footer {
+      background-color: var(--card-bg);
+      border-top: 1px solid var(--border-color);
+      padding: 40px 20px 20px;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-brand, .footer-contact, .footer-links {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-brand p {
+      color: var(--muted-text);
+      font-size: 0.875rem;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    .footer-contact h3, .footer-links h3 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-contact p, .footer-links a {
+      font-size: 0.875rem;
+      color: var(--muted-text);
+      line-height: 1.6;
+      text-decoration: none;
+      display: block;
+    }
+
+    .footer-contact a {
+      color: var(--muted-text);
+      text-decoration: none;
+    }
+
+    .footer-contact a:hover, .footer-links a:hover {
+      color: var(--primary-green);
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted-text);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header class="site-header">
+      <div class="nav-container">
+          <a href="index.html" class="logo">
+              TrustRida
+          </a>
+
+          <nav class="main-nav" aria-label="Main navigation">
+              <a href="index.html">Home</a>
+              <a href="index.html#how-it-works">How It Works</a>
+              <a href="index.html#features">Features</a>
+              <a href="request.html" class="active" aria-current="page">Initiate Handover</a>
+              <a href="contact.html">Contact</a>
+          </nav>
+
+          <a href="request.html" class="nav-button">
+              Get Started
+          </a>
+      </div>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <div class="form-header">
+        <h2>Start Your Request</h2>
+        <p>Enter your details below to begin the transaction and set up a buyer verification step.</p>
+      </div>
+
+      <div class="trust-indicator">
+        <span>✓ Verified handover process</span>
+      </div>
+
+      <form onsubmit="event.preventDefault(); alert('Handover logged successfully.');">
+        <div class="form-row">
+          <div class="form-group" style="flex: 1;">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" placeholder="Alex" required>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" placeholder="Morgan" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Contact email</label>
+          <input type="email" id="email" placeholder="alex.m@domain.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="service-type">Request type</label>
+          <select id="service-type" required>
+            <option value="" disabled selected>Choose a category...</option>
+            <option value="item-handover">Item Delivery & Handover</option>
+            <option value="service-booking">Service Booking Confirmation</option>
+            <option value="escrow-claim">Open Escalation Record</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="details">Transaction notes</label>
+          <textarea id="details" rows="3" placeholder="Add tracking numbers, delivery notes, or specific agreement details..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Confirm & Proceed</button>
+        <p class="security-note">Form state stored locally for submission review.</p>
+      </form>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+      <div class="footer-container">
+          <div class="footer-brand">
+              <a href="index.html" class="logo">
+                  TrustRida
+              </a>
+              <p>
+                  Making small-trade deliveries safer,
+                  clearer, and more trustworthy.
+              </p>
+          </div>
+
+          <div class="footer-contact">
+              <h3>Contact</h3>
+              <p><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></p>
+              <p><a href="tel:+234">Support: support@trustrida.com</a></p>
+              <p>Nigeria</p>
+          </div>
+
+          <div class="footer-links">
+              <h3>Quick Links</h3>
+              <a href="index.html">Home</a>
+              <a href="index.html#how-it-works">How It Works</a>
+              <a href="index.html#features">Features</a>
+              <a href="contact.html">Contact</a>
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <p>
+              &copy; 2026 TrustRida. All rights reserved.
+          </p>
+      </div>
+  </footer>
+
+</body>
+</html>
