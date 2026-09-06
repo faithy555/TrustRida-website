@@ -1,310 +1,404 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trustrida — Contact</title>
-<link rel="stylesheet" href="css/brand.css">
-<link rel="stylesheet" href="css/style.css">
-<style>
-  /* Page-specific styles — layer on top of brand.css / style.css */
-  header.contact-header {
-    padding: 40px 0 24px;
-  }
-  .eyebrow {
-    color: var(--trust-green);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    font-family: var(--display-font);
-  }
-  header.contact-header h1 {
-    font-size: 32px;
-    margin: 0 0 12px;
-  }
-  header.contact-header h1 span { color: var(--trust-green); }
-  .sub {
-    color: var(--deep-navy);
-    opacity: 0.75;
-    font-size: 16px;
-    margin: 0;
-    max-width: 60ch;
-  }
-  main.contact-main {
-    padding-bottom: 60px;
-  }
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    margin-top: 32px;
-  }
-  @media (max-width: 720px) {
-    .contact-layout {
-      grid-template-columns: 1fr;
-    }
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  /* Form card */
-  .form-card h2,
-  .info-card h2 {
-    font-size: 18px;
-    margin-bottom: 18px;
-  }
-  .field {
-    margin-bottom: 18px;
-  }
-  .field label {
-    display: block;
-    font-family: var(--display-font);
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--deep-navy);
-    margin-bottom: 6px;
-  }
-  .field input,
-  .field textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    font-family: var(--body-font);
-    font-size: 15px;
-    color: var(--deep-navy);
-    background-color: var(--white);
-  }
-  .field input:focus,
-  .field textarea:focus {
-    outline: 3px solid var(--amber);
-    outline-offset: 1px;
-    border-color: var(--trust-green);
-  }
-  .field textarea {
-    resize: vertical;
-    min-height: 120px;
-  }
-  .form-note {
-    font-size: 13px;
-    color: var(--deep-navy);
-    opacity: 0.65;
-    margin-top: 10px;
-  }
-  .form-success {
-    display: none;
-    padding: 14px 16px;
-    border-radius: 10px;
-    background-color: var(--light-gray);
-    border: 1px solid var(--border);
-    color: var(--trust-green);
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 18px;
-  }
-  .form-success.visible {
-    display: block;
-  }
+    <title>Contact Us | TrustRida</title>
 
-  /* Info card */
-  .info-card {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .info-item {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-  }
-  .info-item .info-label {
-    font-family: var(--display-font);
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--deep-navy);
-    min-width: 90px;
-  }
-  .info-item p,
-  .info-item a {
-    font-size: 14px;
-    color: var(--deep-navy);
-    opacity: 0.85;
-    margin: 0;
-  }
-  .info-item a {
-    color: var(--trust-green);
-    opacity: 1;
-  }
-</style>
+    <!-- Brand CSS MUST come first -->
+    <link rel="stylesheet" href="css/brand.css">
+
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            width: 100%;
+            min-width: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .contact-hero {
+            padding: 90px 20px 70px;
+            background: var(--navy) ;
+        }
+
+        .contact-hero-content,
+        .contact-container {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+        }
+
+        .contact-hero-content {
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            color: var(--white);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 20px;
+        }
+
+        .contact-hero-content > p:last-child {
+            max-width: 680px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .contact-section {
+            padding: 88px 20px;
+            background: #fff;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+            gap: 64px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            color: var(--navy);
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        .contact-info > p {
+            max-width: 440px;
+            color: var(--muted);
+        }
+
+        .contact-details {
+            display: grid;
+            gap: 18px;
+            margin-top: 34px;
+        }
+
+        .contact-item {
+            padding: 18px 20px;
+            border-left: 4px solid var(--green);
+            background: #f7faf9;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 4px;
+            color: var(--navy);
+            font-size: 1rem;
+        }
+
+        .contact-item p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .contact-form-wrapper {
+            width: 100%;
+            padding: 32px;
+            background: #fff;
+            border: 1px solid rgba(16, 42, 67, 0.1);
+            border-radius: 18px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 8px;
+        }
+
+        .form-group label {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 15px;
+            color: var(--text);
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--green);
+            outline: 3px solid rgba(8, 127, 91, 0.14);
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 14px 22px;
+            color: var(--white);
+            background: var(--green);
+            border: 0;
+            border-radius: 999px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background: var(--trust-green-dark);
+        }
+
+        @media (max-width: 720px) {
+            .contact-hero {
+                padding: 64px 20px 52px;
+            }
+
+            .contact-section {
+                padding: 64px 20px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 44px;
+            }
+
+            .contact-form-wrapper {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- ================= HEADER / NAVIGATION ================= -->
-<header class="site-header">
+    <!-- ================= HEADER / NAVIGATION ================= -->
+    <header class="site-header">
 
-    <div class="nav-container">
-
-        <a href="index.html" class="logo">
-            TrustRida
-        </a>
-
-        <nav class="main-nav" aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="index.html#how-it-works">How It Works</a>
-            <a href="index.html#features">Features</a>
-            <a href="contact.html" class="active" aria-current="page">Contact</a>
-        </nav>
-
-        <a href="index.html" class="nav-button">
-            Get Started
-        </a>
-
-    </div>
-
-</header>
-
-<header class="contact-header container">
-  <div class="eyebrow">Trustrida · Contact</div>
-  <h1>Get in <span>touch</span></h1>
-  <p class="sub">Questions about verifying a rider, listing your business, or reporting an issue — reach out and we'll get back to you.</p>
-</header>
-
-<main class="contact-main container">
-
-  <div class="contact-layout">
-
-    <div class="form-card card">
-      <h2>Send a message</h2>
-
-      <div class="form-success" id="formSuccess">Message sent — we'll get back to you shortly.</div>
-
-      <form id="contactForm">
-        <div class="field">
-          <label for="name">Full name</label>
-          <input type="text" id="name" name="name" required placeholder="Your name">
-        </div>
-
-        <div class="field">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" required placeholder="you@example.com">
-        </div>
-
-        <div class="field">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" required placeholder="What's this about?">
-        </div>
-
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required placeholder="Tell us what's going on"></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Send message</button>
-        <p class="form-note">This form doesn't send email yet — hook it up to your backend or a form service (e.g. Formspree) before launch.</p>
-      </form>
-    </div>
-
-    <div class="info-card card">
-      <h2>Other ways to reach us</h2>
-
-      <div class="info-item">
-        <span class="info-label">Email</span>
-        <a href="mailto:hello@trustrida.com">hello@trustrida.com</a>
-      </div>
-
-      <div class="info-item">
-        <span class="info-label">Support</span>
-        <a href="mailto:support@trustrida.com">support@trustrida.com</a>
-      </div>
-
-      <div class="info-item">
-        <span class="info-label">Location</span>
-        <p>Nigeria</p>
-      </div>
-
-      <div class="info-item">
-        <span class="info-label">Response time</span>
-        <p>Usually within 1–2 business days</p>
-      </div>
-    </div>
-
-  </div>
-
-</main>
-
-<!-- ================= FOOTER ================= -->
-<footer class="site-footer">
-
-    <div class="footer-container">
-
-        <div class="footer-brand">
+        <div class="nav-container">
 
             <a href="index.html" class="logo">
                 TrustRida
             </a>
 
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#features">Features</a>
+                <a href="contact.html" class="active" aria-current="page">Contact</a>
+            </nav>
+
+            <a href="index.html" class="nav-button">
+                Get Started
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main>
+
+        <!-- Contact Hero -->
+        <section class="contact-hero">
+
+            <div class="contact-hero-content">
+
+                <p class="eyebrow">GET IN TOUCH</p>
+
+                <h1>
+                    We're here to help.
+                </h1>
+
+                <p>
+                    Have a question about TrustRida, delivery tracking,
+                    or keeping your transactions secure? Send us a message
+                    and our team will get back to you.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT SECTION ================= -->
+        <section class="contact-section">
+
+            <div class="contact-container">
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+
+                    <h2>
+                        Let's talk
+                    </h2>
+
+                    <p>
+                        Whether you're a small trader, buyer, or delivery rider,
+                        we'd love to hear from you.
+                    </p>
+
+                    <div class="contact-details">
+
+                        <div class="contact-item">
+                            <h3>Email</h3>
+                            <p>hello@trustrida.com</p>
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>Support</h3>
+                            <p>support@trustrida.com</p>
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>Location</h3>
+                            <p>Nigeria</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+
+                    <form class="contact-form">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="message">
+                                Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="6"
+                                placeholder="How can we help?"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <button type="submit" class="submit-button">
+                            Send Message
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    TrustRida
+                </a>
+
+                <p>
+                    Making small-trade deliveries safer,
+                    clearer, and more trustworthy.
+                </p>
+
+            </div>
+
+            <div class="footer-contact">
+
+                <h3>Contact</h3>
+
+                <p><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></p>
+                <p><a href="tel:+234">Support: support@trustrida.com</a></p>
+                <p>Nigeria</p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#features">Features</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
             <p>
-                Making small-trade deliveries safer,
-                clearer, and more trustworthy.
+                &copy; 2026 TrustRida. All rights reserved.
             </p>
 
         </div>
 
-        <div class="footer-contact">
-
-            <h3>Contact</h3>
-
-            <p><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></p>
-            <p><a href="tel:+234">Support: support@trustrida.com</a></p>
-            <p>Nigeria</p>
-
-        </div>
-
-        <div class="footer-links">
-
-            <h3>Quick Links</h3>
-
-            <a href="index.html">Home</a>
-            <a href="index.html#how-it-works">How It Works</a>
-            <a href="index.html#features">Features</a>
-            <a href="contact.html">Contact</a>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <p>
-            &copy; 2026 TrustRida. All rights reserved.
-        </p>
-
-    </div>
-
-</footer>
-
-<script>
-  document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    document.getElementById('formSuccess').classList.add('visible');
-    this.reset();
-  });
-</script>
+    </footer>
 
 </body>
-</html>
-DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-</head>
-
-<body>
-  
-</body>
-
 </html>

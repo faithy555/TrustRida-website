@@ -1,238 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trustrida — Guide & FAQ</title>
-<link rel="stylesheet" href="css/brand.css">
-<link rel="stylesheet" href="css/style.css">
-<style>
-  /* Page-specific styles — layer on top of brand.css / style.css.
-     Uses the brand's own variables (--trust-green, --deep-navy, etc.) */
-  header.faq-header {
-    padding: 40px 0 24px;
-  }
-  .eyebrow {
-    color: var(--trust-green);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    font-family: var(--display-font);
-  }
-  header.faq-header h1 {
-    font-size: 32px;
-    margin: 0 0 12px;
-  }
-  header.faq-header h1 span { color: var(--trust-green); }
-  .sub {
-    color: var(--deep-navy);
-    opacity: 0.75;
-    font-size: 16px;
-    margin: 0;
-  }
-  main.faq-main {
-    padding-bottom: 60px;
-  }
-  .category {
-    margin-top: 36px;
-  }
-  .category h2 {
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--trust-green);
-    margin-bottom: 14px;
-    font-family: var(--display-font);
-  }
-  .faq-item {
-    padding: 0;
-    margin-bottom: 12px;
-    overflow: hidden;
-  }
-  .faq-question {
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: none;
-    color: var(--deep-navy);
-    font-family: var(--display-font);
-    font-size: 16px;
-    font-weight: 700;
-    padding: 16px 24px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-  }
-  .faq-question::after {
-    content: "+";
-    color: var(--trust-green);
-    font-size: 20px;
-    flex-shrink: 0;
-    transition: transform 0.2s;
-  }
-  .faq-item.open .faq-question::after {
-    transform: rotate(45deg);
-  }
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.25s ease, padding 0.25s ease;
-    padding: 0 24px;
-    color: var(--deep-navy);
-    opacity: 0.8;
-    font-size: 15px;
-  }
-  .faq-item.open .faq-answer {
-    max-height: 300px;
-    padding: 0 24px 20px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TrustRida | Safe Delivery Tracking</title>
+
+    <!-- Brand CSS MUST come first -->
+    <link rel="stylesheet" href="css/brand.css">
+
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<header class="faq-header container">
-  <div class="eyebrow">Trustrida · Guide &amp; FAQ</div>
-  <h1>Questions before you <span>pay</span></h1>
-  <p class="sub">The real questions a first-time buyer asks before trusting a rider they've never met.</p>
-</header>
-
-<main class="faq-main container">
-
-  <div class="category">
-    <h2>Trust &amp; Identity</h2>
-
-    <div class="faq-item card">
-      <button class="faq-question">How do I know the rider on this page is the real person coming to my door?</button>
-      <div class="faq-answer">Trustrida shows a photo, government or company ID, and bike plate number tied to that specific delivery — not a general profile. Match the face and plate before you open your door.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">Can a seller just upload a fake ID to trick me?</button>
-      <div class="faq-answer">IDs are checked against the rider's registered details before a link goes live, so a mismatched or fake ID doesn't generate a valid page.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">What stops a scammer from sending me a screenshot instead of a real Trustrida link?</button>
-      <div class="faq-answer">Every real link opens live on Trustrida's site with current rider status — a screenshot can't do that. If it's not opening as a live page, don't trust it.</div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h2>Payment</h2>
-
-    <div class="faq-item card">
-      <button class="faq-question">Do I have to pay before I see the rider's details?</button>
-      <div class="faq-answer">No. You check the verification page first — photo, ID, plate, phone — before any money moves.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">Is my money protected if the rider never shows up?</button>
-      <div class="faq-answer">Trustrida confirms the rider is real and dispatched; it's not a payment escrow, so agree payment terms (part-payment, pay-on-arrival) directly with the seller.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">Why not just use bank transfer proof like before?</button>
-      <div class="faq-answer">Transfer receipts only prove money moved — they say nothing about who's bringing your goods. Trustrida verifies the person, not the payment.</div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h2>Using the Link</h2>
-
-    <div class="faq-item card">
-      <button class="faq-question">What if the link doesn't open or looks broken?</button>
-      <div class="faq-answer">That's a red flag — a real Trustrida page always loads. Don't proceed with payment until you get a working link.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">Does the rider change for every order, or is it the same person?</button>
-      <div class="faq-answer">Sellers can assign different riders per order, so always check the link for that specific delivery — don't assume it's the same rider as last time.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">Can I check the rider's status while the delivery is in progress?</button>
-      <div class="faq-answer">Yes, the page shows live dispatch clearance status, not just a one-time snapshot.</div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h2>Why This Over Alternatives</h2>
-
-    <div class="faq-item card">
-      <button class="faq-question">Why not just use Gokada or Chowdeck?</button>
-      <div class="faq-answer">Those apps verify riders for their own platform but don't give an independent seller a shareable proof link for buyers to check beforehand — Trustrida is built for that gap.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">I've been scammed before — why should I go first this time?</button>
-      <div class="faq-answer">You're not really "going first" — you're verifying the rider before payment, which is the whole point: proof before trust, not trust before proof.</div>
-    </div>
-  </div>
-
-</main>
-
-<footer class="site-footer">
-
-    <div class="footer-container">
-
-        <div class="footer-brand">
-
-            <a href="index.html" class="logo">
-                TrustRida
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="TrustRida home">
+                <img src="https://i.postimg.cc/3wX8hdDJ/6a94c77d-6948-4028-94ad-6707c4aa324a.jpg" alt="TrustRida logo" class="brand-logo-image">
             </a>
 
-            <p>
-                Making small-trade deliveries safer,
-                clearer, and more trustworthy.
-            </p>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html" class="active" aria-current="page">Home</a>
+                <a href="#problems">Problems</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#features">Features</a>
+                <a href="contact.html">Contact</a>
+            </nav>
 
+            <a href="contact.html" class="nav-button">
+                Get Started
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">SMART DELIVERY TRACKING</p>
+                <h1>Delivery tracking that builds trust.</h1>
+                <p class="hero-subtitle">
+                    TrustRida helps traders, buyers, and riders stay aligned with
+                    safe, transparent, real-time updates from pickup to confirmation.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="contact.html" class="cta-button primary">Start Tracking</a>
+                    <a href="#how-it-works" class="cta-button secondary">See How It Works</a>
+                </div>
+
+                <ul class="hero-points" aria-label="TrustRida benefits">
+                    <li>Real-time delivery updates</li>
+                    <li>Secure transaction steps</li>
+                    <li>Built for small businesses</li>
+                </ul>
+            </div>
+
+            <div class="hero-visual" aria-label="TrustRida dashboard preview">
+                <div class="dashboard-card">
+                    <div class="dashboard-header">
+                        <span class="dot green"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot red"></span>
+                    </div>
+
+                    <div class="route-box">
+                        <div class="route-row">
+                            <span>Pickup</span>
+                            <span class="check">✓</span>
+                        </div>
+                        <div class="route-line"></div>
+                        <div class="route-row">
+                            <span>In transit</span>
+                            <span class="live">Live</span>
+                        </div>
+                        <div class="route-line short"></div>
+                        <div class="route-row">
+                            <span>Delivery</span>
+                            <span class="pending">Waiting</span>
+                        </div>
+                    </div>
+
+                    <div class="mini-stats">
+                        <div>
+                            <strong>98.7%</strong>
+                            <span>On-time</span>
+                        </div>
+                        <div>
+                            <strong>2.4k</strong>
+                            <span>Deliveries</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="problems" class="problems-section">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-kicker">THE PROBLEMS WE SOLVE</p>
+                    <h2>Trusted delivery systems for modern trade.</h2>
+                    <p>We help businesses and teams remove risk, confusion, and delays from the delivery journey.</p>
+                </div>
+
+                <div class="problems-grid">
+                    <div class="problem-card">
+                        <div class="icon">📉</div>
+                        <h3>No Visibility</h3>
+                        <p>People are unsure where a package is or whether it has been received.</p>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="icon">📱</div>
+                        <h3>Poor Communication</h3>
+                        <p>Riders, traders, and buyers stay disconnected during delivery handoffs.</p>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="icon">🌐</div>
+                        <h3>No Trust Signal</h3>
+                        <p>Without a clear record, customers lose confidence in the process.</p>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="icon">🎥</div>
+                        <h3>Weak Tracking</h3>
+                        <p>Manual updates create delays, missed confirmations, and confusion.</p>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="icon">💰</div>
+                        <h3>Money Lost</h3>
+                        <p>Unclear delivery status can lead to disputes, complaints, and lost revenue.</p>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="icon">📊</div>
+                        <h3>No Brand Reliability</h3>
+                        <p>Customers hesitate when the transaction process feels shaky or unclear.</p>
+                    </div>
+                </div>
+
+                <div class="cta-center">
+                    <a href="contact.html" class="btn-primary">Let's Solve This Together</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <div class="section-header alt">
+                    <p class="section-kicker">HOW IT WORKS</p>
+                    <h2>A simple flow that keeps every delivery visible.</h2>
+                </div>
+
+                <div class="steps-container">
+                    <div class="step">
+                        <span class="step-number">01</span>
+                        <h3>Send</h3>
+                        <p>A trader creates a delivery and shares the details instantly.</p>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-number">02</span>
+                        <h3>Track</h3>
+                        <p>All parties follow the item with live updates and status changes.</p>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-number">03</span>
+                        <h3>Confirm</h3>
+                        <p>At delivery, the receiver confirms and closes the process with confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header alt">
+                    <p class="section-kicker">WHY TRUSTRIDA</p>
+                    <h2>Everything you need to make every handoff feel secure.</h2>
+                </div>
+
+                <div class="features-container">
+                    <div class="feature">
+                        <div class="feature-icon">⏱</div>
+                        <h3>Real-Time Tracking</h3>
+                        <p>See where your package is at every point of the journey.</p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Secure Transactions</h3>
+                        <p>Built-in confirmation steps help everyone stay protected.</p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">✅</div>
+                        <h3>Simple to Use</h3>
+                        <p>No complicated system. Get started quickly and keep moving.</p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">📲</div>
+                        <h3>Mobile Ready</h3>
+                        <p>Fast access from phone or desktop wherever the journey moves.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo logo-footer" aria-label="TrustRida home">
+                    <img src="https://i.postimg.cc/3wX8hdDJ/6a94c77d-6948-4028-94ad-6707c4aa324a.jpg" alt="TrustRida logo" class="brand-logo-image">
+                </a>
+                <p>Making small-trade deliveries safer, clearer, and more trustworthy.</p>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></p>
+                <p><a href="tel:+234">support@trustrida.com</a></p>
+                <p>Nigeria</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#features">Features</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
 
-        <div class="footer-contact">
-
-            <h3>Contact</h3>
-
-            <p><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></p>
-            <p><a href="tel:+234">Support: support@trustrida.com</a></p>
-            <p>Nigeria</p>
-
+        <div class="footer-bottom">
+            <p>&copy; 2026 TrustRida. All rights reserved.</p>
         </div>
-
-        <div class="footer-links">
-
-            <h3>Quick Links</h3>
-
-            <a href="index.html">Home</a>
-            <a href="index.html#how-it-works">How It Works</a>
-            <a href="index.html#features">Features</a>
-            <a href="contact.html">Contact</a>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <p>
-            &copy; 2026 TrustRida. All rights reserved.
-        </p>
-
-    </div>
-
-</footer>
-
-<script>
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.parentElement.classList.toggle('open');
-    });
-  });
-</script>
+    </footer>
 
 </body>
 </html>
