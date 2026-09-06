@@ -22,13 +22,14 @@
 
         .contact-hero {
             padding: 90px 20px 70px;
-            background: var(--navy) ;
+            background: var(--navy);
         }
 
         .contact-hero-content,
         .contact-container {
-            width: min(1180px, 100%);
+            width: min(1180px, 92%);
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .contact-hero-content {
@@ -80,6 +81,7 @@
             padding: 18px 20px;
             border-left: 4px solid var(--green);
             background: #f7faf9;
+            border-radius: 8px;
         }
 
         .contact-item h3 {
@@ -126,6 +128,7 @@
             border: 1px solid var(--border);
             border-radius: 8px;
             resize: vertical;
+            font-family: inherit;
         }
 
         .form-group input:focus,
@@ -143,10 +146,19 @@
             border-radius: 999px;
             font-weight: 800;
             cursor: pointer;
+            transition: background var(--transition), transform var(--transition);
+            font-family: inherit;
         }
 
         .submit-button:hover {
             background: var(--trust-green-dark);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 980px) {
+            .contact-container {
+                gap: 44px;
+            }
         }
 
         @media (max-width: 720px) {
@@ -161,10 +173,15 @@
             .contact-container {
                 grid-template-columns: 1fr;
                 gap: 44px;
+                padding: 0;
             }
 
             .contact-form-wrapper {
                 padding: 24px;
+            }
+
+            .contact-hero-content {
+                padding: 0 20px;
             }
         }
     </style>
@@ -177,21 +194,21 @@
 
         <div class="nav-container">
 
-            <a href="index.html" class="logo">
-                TrustRida
+            <a href="index.html" class="logo" aria-label="TrustRida home">
+                <img src="https://i.postimg.cc/3wX8hdDJ/6a94c77d-6948-4028-94ad-6707c4aa324a.jpg" alt="TrustRida logo" class="brand-logo-image">
             </a>
 
             <nav class="main-nav" aria-label="Main navigation">
-                <a href="index.html" class="active" aria-current="page">Home</a>
+                <a href="index.html">Home</a>
                 <a href="Daelxsa.html">Why TrustRida</a>
                 <a href="how-it-works.html">How It Works</a>
                 <a href="oluwatoks.html">The Details</a>
-                <a href="energy.html">Verrification</a>
+                <a href="energy.html">Verification</a>
                 <a href="okakamushunu.html">Guide & FAQ</a>
-                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="active" aria-current="page">Contact</a>
             </nav>
 
-            <a href="index.html" class="nav-button">
+            <a href="erikah.html" class="nav-button">
                 Get Started
             </a>
 
@@ -246,12 +263,12 @@
 
                         <div class="contact-item">
                             <h3>Email</h3>
-                            <p>hello@trustrida.com</p>
+                            <p><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></p>
                         </div>
 
                         <div class="contact-item">
                             <h3>Support</h3>
-                            <p>support@trustrida.com</p>
+                            <p><a href="mailto:support@trustrida.com">support@trustrida.com</a></p>
                         </div>
 
                         <div class="contact-item">
@@ -358,8 +375,8 @@
 
             <div class="footer-brand">
 
-                <a href="index.html" class="logo">
-                    TrustRida
+                <a href="index.html" class="logo logo-footer" aria-label="TrustRida home">
+                    <img src="https://i.postimg.cc/3wX8hdDJ/6a94c77d-6948-4028-94ad-6707c4aa324a.jpg" alt="TrustRida logo" class="brand-logo-image">
                 </a>
 
                 <p>
@@ -374,7 +391,7 @@
                 <h3>Contact</h3>
 
                 <p><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></p>
-                <p><a href="tel:+234">Support: support@trustrida.com</a></p>
+                <p><a href="mailto:support@trustrida.com">support@trustrida.com</a></p>
                 <p>Nigeria</p>
 
             </div>
@@ -387,7 +404,7 @@
                 <a href="Daelxsa.html">Why TrustRida</a>
                 <a href="how-it-works.html">How It Works</a>
                 <a href="oluwatoks.html">The Details</a>
-                <a href="energy.html">Verrification</a>
+                <a href="energy.html">Verification</a>
                 <a href="okakamushunu.html">Guide & FAQ</a>
                 <a href="contact.html">Contact</a>
 
