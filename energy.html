@@ -1,1103 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102a43">
 
-    <title>Trustrida — Trust & Verification</title>
+    <title>Verification | What TrustRida checks, and what it does not</title>
+    <meta name="description" content="What TrustRida verifies about a dispatch rider, what verification honestly cannot guarantee, and what to do when the details do not match.">
 
-    <style>
-        :root {
-            --green: #087F5B;
-            --green-dark: #056447;
-            --green-light: #E8F7F2;
-            --text: #17201D;
-            --muted: #65716D;
-            --border: #DDE5E2;
-            --white: #FFFFFF;
-            --danger: #B42318;
-            --danger-bg: #FFF2F0;
-            --warning: #8A5A00;
-            --warning-bg: #FFF8E6;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-        }
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TrustRida">
+    <meta property="og:title" content="Verification | What TrustRida checks, and what it does not">
+    <meta property="og:description" content="What TrustRida verifies about a dispatch rider, what verification honestly cannot guarantee, and what to do when the details do not match.">
+    <meta name="twitter:card" content="summary_large_image">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
-        html {
-            scroll-behavior: smooth;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #F8FAF9;
-            color: var(--text);
-            line-height: 1.6;
-        }
+    <link rel="stylesheet" href="css/brand.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
 
-        /* Keyboard accessibility */
-        .skip-link {
-            position: absolute;
-            left: 12px;
-            top: -60px;
-            background: var(--green);
-            color: white;
-            padding: 12px 18px;
-            border-radius: 0 0 8px 8px;
-            z-index: 9999;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-
-        :focus-visible {
-            outline: 3px solid #F2B544;
-            outline-offset: 3px;
-        }
-
-        a,
-        button {
-            font: inherit;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        /* NAVIGATION */
-        header {
-            background: white;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav {
-            max-width: 1180px;
-            margin: auto;
-            padding: 18px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .logo {
-            color: var(--green);
-            font-size: 25px;
-            font-weight: 800;
-            text-decoration: none;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            color: #35413D;
-        }
-
-        nav a:hover {
-            color: var(--green);
-        }
-
-        .verify-btn {
-            background: var(--green);
-            color: white !important;
-            padding: 10px 17px;
-            border-radius: 8px;
-        }
-
-        .verify-btn:hover {
-            background: var(--green-dark);
-        }
-
-        /* HERO */
-        .hero {
-            max-width: 1180px;
-            margin: auto;
-            padding: 80px 24px 60px;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .eyebrow {
-            display: inline-block;
-            color: var(--green);
-            background: var(--green-light);
-            padding: 7px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 18px;
-        }
-
-        h1 {
-            font-size: clamp(38px, 5vw, 64px);
-            line-height: 1.08;
-            letter-spacing: -2px;
-            margin-bottom: 22px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: var(--muted);
-            max-width: 650px;
-            margin-bottom: 28px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .primary-btn,
-        .secondary-btn {
-            display: inline-block;
-            padding: 13px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .primary-btn {
-            background: var(--green);
-            color: white;
-        }
-
-        .primary-btn:hover {
-            background: var(--green-dark);
-        }
-
-        .secondary-btn {
-            border: 1px solid var(--border);
-            background: white;
-        }
-
-        .secondary-btn:hover {
-            border-color: var(--green);
-            color: var(--green);
-        }
-
-        /* VERIFICATION CARD */
-        .proof-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-        }
-
-        .proof-header {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            margin-bottom: 22px;
-        }
-
-        .proof-title {
-            font-weight: 800;
-        }
-
-        .status {
-            color: var(--green);
-            background: var(--green-light);
-            padding: 5px 9px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        .rider {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .avatar {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: var(--green-light);
-            display: grid;
-            place-items: center;
-            color: var(--green);
-            font-weight: 800;
-            font-size: 20px;
-        }
-
-        .rider h3 {
-            font-size: 18px;
-        }
-
-        .rider small {
-            color: var(--muted);
-        }
-
-        .checks {
-            margin-top: 18px;
-            display: grid;
-            gap: 12px;
-        }
-
-        .check {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-        }
-
-        .check-icon {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: var(--green-light);
-            color: var(--green);
-            display: grid;
-            place-items: center;
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        /* SECTIONS */
-        section {
-            padding: 75px 24px;
-        }
-
-        .container {
-            max-width: 1180px;
-            margin: auto;
-        }
-
-        .section-heading {
-            max-width: 700px;
-            margin-bottom: 40px;
-        }
-
-        .section-heading h2 {
-            font-size: 36px;
-            line-height: 1.2;
-            margin-bottom: 12px;
-        }
-
-        .section-heading p {
-            color: var(--muted);
-        }
-
-        /* VERIFICATION STEPS */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-
-        .step {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 25px;
-        }
-
-        .number {
-            width: 35px;
-            height: 35px;
-            display: grid;
-            place-items: center;
-            border-radius: 50%;
-            background: var(--green);
-            color: white;
-            font-weight: bold;
-            margin-bottom: 18px;
-        }
-
-        .step h3 {
-            margin-bottom: 9px;
-            font-size: 18px;
-        }
-
-        .step p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* GUARANTEE */
-        .limits {
-            background: #F0F7F4;
-        }
-
-        .limit-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .limit-card {
-            padding: 28px;
-            border-radius: 14px;
-            background: white;
-            border: 1px solid var(--border);
-        }
-
-        .limit-card h3 {
-            margin-bottom: 15px;
-        }
-
-        .limit-card ul {
-            padding-left: 20px;
-            color: var(--muted);
-        }
-
-        .limit-card li {
-            margin-bottom: 8px;
-        }
-
-        .not-guaranteed {
-            border-left: 5px solid var(--warning);
-        }
-
-        /* REPORT */
-        .report-box {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 35px;
-            display: grid;
-            grid-template-columns: 1fr 0.8fr;
-            gap: 40px;
-            box-shadow: var(--shadow);
-        }
-
-        .report-box h2 {
-            margin-bottom: 12px;
-        }
-
-        .report-box p {
-            color: var(--muted);
-            margin-bottom: 20px;
-        }
-
-        .report-list {
-            display: grid;
-            gap: 12px;
-        }
-
-        .report-item {
-            padding: 15px;
-            border-radius: 8px;
-            background: #F8FAF9;
-            border: 1px solid var(--border);
-        }
-
-        .report-item strong {
-            display: block;
-            margin-bottom: 3px;
-        }
-
-        .report-item span {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* ACCESSIBILITY */
-        .accessibility {
-            background: var(--green);
-            color: white;
-        }
-
-        .accessibility .section-heading p {
-            color: #D8EEE7;
-        }
-
-        .access-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
-
-        .access-card {
-            border: 1px solid rgba(255,255,255,0.25);
-            background: rgba(255,255,255,0.08);
-            padding: 25px;
-            border-radius: 14px;
-        }
-
-        .access-card h3 {
-            margin-bottom: 8px;
-        }
-
-        .access-card p {
-            color: #D8EEE7;
-            font-size: 14px;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #10201B;
-            color: white;
-            padding: 35px 24px;
-        }
-
-        .footer-inner {
-            max-width: 1180px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        footer p {
-            color: #B6C4BF;
-            font-size: 14px;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 850px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding-top: 55px;
-            }
-
-            .steps {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .limit-grid,
-            .report-box {
-                grid-template-columns: 1fr;
-            }
-
-            .access-grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                gap: 12px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .nav {
-                padding: 15px;
-            }
-
-            nav ul li:not(:last-child) {
-                display: none;
-            }
-
-            .hero {
-                padding-left: 18px;
-                padding-right: 18px;
-            }
-
-            section {
-                padding: 55px 18px;
-            }
-
-            .steps {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                letter-spacing: -1px;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-            }
-        }
-
-        /* Reduced motion accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-        }
-    </style>
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
 
-    <!-- Keyboard users can skip navigation -->
-    <a href="#main-content" class="skip-link">
-        Skip to main content
-    </a>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-    <header>
-        <div class="nav">
+    <header class="site-header">
+        <div class="nav-container">
 
-            <a href="index.html" class="logo" aria-label="Trustrida home">
-                Trustrida
+            <a class="logo" href="index.html" aria-label="TrustRida — home">
+                <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="34" height="34">
+                <span class="logo-word">Trust<span>Rida</span></span>
             </a>
 
-            <nav class="main-nav" aria-label="Main navigation">
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <nav class="main-nav" id="primary-nav" aria-label="Primary">
                 <a href="index.html">Home</a>
                 <a href="Daelxsa.html">Why TrustRida</a>
                 <a href="how-it-works.html">How It Works</a>
                 <a href="oluwatoks.html">The Details</a>
-                <a href="energy.html" class="active" aria-current="page">Verrification</a>
+                <a href="energy.html" class="active" aria-current="page">Verification</a>
                 <a href="okakamushunu.html">Guide &amp; FAQ</a>
                 <a href="contact.html">Contact</a>
             </nav>
 
+            <div class="nav-cta">
+                <a class="btn btn--primary btn--sm" href="erikah.html">Get Started</a>
+            </div>
+
         </div>
     </header>
 
+    <main id="main">
 
-    <main id="main-content">
+        <!-- ============ PAGE HERO ============ -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero__inner">
+                    <nav class="crumb crumb--invert" aria-label="Breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span aria-hidden="true">/</span>
+                        <span aria-current="page">Verification</span>
+                    </nav>
 
-        <!-- HERO -->
-        <section class="hero">
+                    <p class="eyebrow eyebrow--invert">Trust &amp; verification</p>
+                    <h1>Know who is coming, <em>and what we did not check.</em></h1>
+                    <p>
+                        TrustRida helps a buyer check the rider connected to an order before
+                        money changes hands. We show you what has been verified &mdash; and we
+                        are equally clear about what has not.
+                    </p>
 
-            <div>
-                <span class="eyebrow">
-                    TRUST & VERIFICATION
-                </span>
-
-                <h1>
-                    Know who is coming before you pay.
-                </h1>
-
-                <p>
-                    Trustrida helps first-time buyers check the delivery
-                    rider connected to an order before money changes hands.
-                    We show you what has been verified — and what has not.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="#verification" class="primary-btn">
-                        See how verification works
-                    </a>
-
-                    <a href="#limits" class="secondary-btn">
-                        See our limits
-                    </a>
+                    <div class="btn-row">
+                        <a class="btn btn--invert" href="#verification">What we check</a>
+                        <a class="btn btn--ghost-invert" href="#limits">See our limits</a>
+                    </div>
                 </div>
             </div>
+        </section>
 
 
-            <!-- SAMPLE VERIFICATION CARD -->
-            <aside class="proof-card" aria-label="Example rider verification">
+        <!-- ============ SPECIFIC, NOT GENERAL ============ -->
+        <section class="section section--white" id="verification">
+            <div class="container split split--wide-left">
 
-                <div class="proof-header">
-                    <div>
-                        <div class="proof-title">
-                            Delivery verification
+                <div>
+                    <p class="eyebrow">How it works</p>
+                    <h2>Verification should be specific, not a screenshot.</h2>
+                    <p class="lede" style="margin-bottom: var(--space-5);">
+                        A verification page should connect a rider to the actual delivery,
+                        instead of relying on a WhatsApp photo, a phone number, a review or a
+                        payment screenshot &mdash; all of which describe the past, or nothing at all.
+                    </p>
+
+                    <div class="grid" style="gap: var(--space-4);">
+
+                        <article class="card card--flat" style="display: flex; gap: var(--space-4);">
+                            <span class="step-card__num" style="margin: 0;">1</span>
+                            <div>
+                                <h3 style="font-size: var(--step-0); margin-bottom: 4px;">Identity</h3>
+                                <p class="small muted">The rider's identity information is checked and shown as part of the verification profile.</p>
+                            </div>
+                        </article>
+
+                        <article class="card card--flat" style="display: flex; gap: var(--space-4);">
+                            <span class="step-card__num" style="margin: 0;">2</span>
+                            <div>
+                                <h3 style="font-size: var(--step-0); margin-bottom: 4px;">Registration</h3>
+                                <p class="small muted">A government or company registration ID is recorded against the rider's profile.</p>
+                            </div>
+                        </article>
+
+                        <article class="card card--flat" style="display: flex; gap: var(--space-4);">
+                            <span class="step-card__num" style="margin: 0;">3</span>
+                            <div>
+                                <h3 style="font-size: var(--step-0); margin-bottom: 4px;">Vehicle</h3>
+                                <p class="small muted">The bike licence plate is connected to the profile, so it can be matched at your door.</p>
+                            </div>
+                        </article>
+
+                        <article class="card card--flat" style="display: flex; gap: var(--space-4);">
+                            <span class="step-card__num" style="margin: 0;">4</span>
+                            <div>
+                                <h3 style="font-size: var(--step-0); margin-bottom: 4px;">Contact &amp; status</h3>
+                                <p class="small muted">The phone contact and current dispatch clearance are shown so a buyer can check before paying.</p>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div class="proof-card">
+                        <div class="proof-card__head">
+                            <div>
+                                <h3>Delivery verification</h3>
+                                <span>Example verification profile</span>
+                            </div>
+                            <span class="badge badge--verified">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                                Verified
+                            </span>
                         </div>
 
-                        <small>
-                            Example verification profile
-                        </small>
+                        <div class="proof-card__rider">
+                            <span class="avatar" aria-hidden="true">AM</span>
+                            <div>
+                                <h4>Alex M.</h4>
+                                <p>Dispatch rider</p>
+                            </div>
+                        </div>
+
+                        <ul class="proof-card__checks">
+                            <li class="proof-check">
+                                <span class="proof-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                                Identity checked
+                            </li>
+                            <li class="proof-check">
+                                <span class="proof-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                                Registration ID checked
+                            </li>
+                            <li class="proof-check">
+                                <span class="proof-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                                Bike plate recorded
+                                <span class="proof-check__value">LSD-482-XA</span>
+                            </li>
+                            <li class="proof-check">
+                                <span class="proof-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                                Phone contact verified
+                            </li>
+                            <li class="proof-check">
+                                <span class="proof-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                                Dispatch status active
+                            </li>
+                        </ul>
+
+                        <p class="proof-card__foot">Sample data shown for illustration.</p>
                     </div>
-
-                    <span class="status">
-                        VERIFIED
-                    </span>
-                </div>
-
-
-                <div class="rider">
-
-                    <div class="avatar" aria-hidden="true">
-                        AM
-                    </div>
-
-                    <div>
-                        <h3>
-                            Alex M.
-                        </h3>
-
-                        <small>
-                            Dispatch rider
-                        </small>
-                    </div>
-
-                </div>
-
-
-                <div class="checks">
-
-                    <div class="check">
-                        <span class="check-icon" aria-hidden="true">✓</span>
-                        Identity checked
-                    </div>
-
-                    <div class="check">
-                        <span class="check-icon" aria-hidden="true">✓</span>
-                        Registration ID checked
-                    </div>
-
-                    <div class="check">
-                        <span class="check-icon" aria-hidden="true">✓</span>
-                        Bike plate recorded
-                    </div>
-
-                    <div class="check">
-                        <span class="check-icon" aria-hidden="true">✓</span>
-                        Phone contact verified
-                    </div>
-
-                    <div class="check">
-                        <span class="check-icon" aria-hidden="true">✓</span>
-                        Dispatch status active
-                    </div>
-
-                </div>
-
-            </aside>
-
-        </section>
-
-
-        <!-- VERIFICATION -->
-        <section id="verification">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="eyebrow">
-                        HOW IT WORKS
-                    </span>
-
-                    <h2>
-                        Verification should be specific, not a screenshot.
-                    </h2>
-
-                    <p>
-                        A verification page should connect the rider to the
-                        actual delivery instead of relying only on a WhatsApp
-                        photo, phone number, review or payment screenshot.
-                    </p>
-
-                </div>
-
-
-                <div class="steps">
-
-                    <article class="step">
-                        <div class="number">1</div>
-
-                        <h3>
-                            Identity
-                        </h3>
-
-                        <p>
-                            The rider's identity information is checked and
-                            displayed as part of the verification profile.
-                        </p>
-                    </article>
-
-
-                    <article class="step">
-                        <div class="number">2</div>
-
-                        <h3>
-                            Registration
-                        </h3>
-
-                        <p>
-                            A government or company registration ID can be
-                            recorded as part of the rider's verification
-                            information.
-                        </p>
-                    </article>
-
-
-                    <article class="step">
-                        <div class="number">3</div>
-
-                        <h3>
-                            Vehicle
-                        </h3>
-
-                        <p>
-                            The rider's bike licence plate number is connected
-                            to the verification profile.
-                        </p>
-                    </article>
-
-
-                    <article class="step">
-                        <div class="number">4</div>
-
-                        <h3>
-                            Contact & status
-                        </h3>
-
-                        <p>
-                            The phone contact and current dispatch clearance
-                            status are shown so the buyer can check before
-                            payment.
-                        </p>
-                    </article>
-
                 </div>
 
             </div>
-
         </section>
 
 
-        <!-- LIMITS -->
-        <section id="limits" class="limits">
-
+        <!-- ============ LIMITS ============ -->
+        <section class="section section--sunken" id="limits">
             <div class="container">
 
-                <div class="section-heading">
-
-                    <span class="eyebrow">
-                        HONEST VERIFICATION
-                    </span>
-
-                    <h2>
-                        Verified does not mean risk-free.
-                    </h2>
-
+                <div class="section-header section-header--center">
+                    <p class="eyebrow eyebrow--amber">Honest verification</p>
+                    <h2>Verified does not mean risk-free.</h2>
                     <p>
-                        Trust depends on transparency. Trustrida should never
-                        claim that verification guarantees the behaviour,
-                        safety or delivery outcome of another person.
+                        Trust depends on transparency. TrustRida will never claim that
+                        verification guarantees the behaviour, safety or delivery outcome
+                        of another person.
                     </p>
-
                 </div>
-
 
                 <div class="limit-grid">
 
                     <div class="limit-card">
-
-                        <h3>
-                            What verification tells you
-                        </h3>
-
-                        <ul>
-                            <li>
-                                Which rider information has been checked.
-                            </li>
-
-                            <li>
-                                Which registration information is recorded.
-                            </li>
-
-                            <li>
-                                The bike plate associated with the profile.
-                            </li>
-
-                            <li>
-                                Whether the phone contact has been verified.
-                            </li>
-
-                            <li>
-                                Whether the dispatch clearance is currently
-                                active.
-                            </li>
+                        <h3>What verification tells you</h3>
+                        <ul class="check-list">
+                            <li>Which rider information has been checked</li>
+                            <li>Which registration information is recorded</li>
+                            <li>The bike plate associated with the profile</li>
+                            <li>Whether the phone contact has been verified</li>
+                            <li>Whether dispatch clearance is currently active</li>
                         </ul>
-
                     </div>
 
-
-                    <div class="limit-card not-guaranteed">
-
-                        <h3>
-                            What we do NOT guarantee
-                        </h3>
-
-                        <ul>
-                            <li>
-                                We do not guarantee that a delivery will be
-                                completed successfully.
-                            </li>
-
-                            <li>
-                                Verification does not guarantee that goods
-                                cannot be damaged, lost or delayed.
-                            </li>
-
-                            <li>
-                                Verification does not guarantee a rider's
-                                future behaviour.
-                            </li>
-
-                            <li>
-                                Verification does not automatically guarantee
-                                a refund or replacement.
-                            </li>
-
-                            <li>
-                                A verified profile should not replace your own
-                                judgement before making a payment.
-                            </li>
+                    <div class="limit-card limit-card--no">
+                        <h3>What we do not guarantee</h3>
+                        <ul class="check-list cross-list">
+                            <li>That a delivery will be completed successfully</li>
+                            <li>That goods cannot be damaged, lost or delayed</li>
+                            <li>A rider's future behaviour</li>
+                            <li>An automatic refund or replacement</li>
+                            <li>That you can skip your own judgement before paying</li>
                         </ul>
-
                     </div>
 
                 </div>
 
             </div>
-
         </section>
 
 
-        <!-- REPORT -->
-        <section id="report">
+        <!-- ============ REPORT ============ -->
+        <section class="section section--invert" id="report">
+            <div class="container split">
 
-            <div class="container">
-
-                <div class="report-box">
-
-                    <div>
-
-                        <span class="eyebrow">
-                            SOMETHING WENT WRONG?
-                        </span>
-
-                        <h2>
-                            Don't disappear into a WhatsApp chat.
-                        </h2>
-
-                        <p>
-                            If the rider, vehicle, contact details or delivery
-                            do not match the verification information, stop
-                            and report the issue through the Trustrida
-                            reporting route.
-                        </p>
-
-                        <a href="mailto:support@trustrida.com"
-                           class="primary-btn">
-                            Report a problem
-                        </a>
-
-                    </div>
-
-
-                    <div class="report-list">
-
-                        <div class="report-item">
-                            <strong>
-                                01 — Stop the transaction
-                            </strong>
-
-                            <span>
-                                Do not continue with payment if the
-                                verification details do not match.
-                            </span>
-                        </div>
-
-
-                        <div class="report-item">
-                            <strong>
-                                02 — Record the mismatch
-                            </strong>
-
-                            <span>
-                                Keep the verification page and relevant
-                                transaction information.
-                            </span>
-                        </div>
-
-
-                        <div class="report-item">
-                            <strong>
-                                03 — Contact support
-                            </strong>
-
-                            <span>
-                                Submit the problem through the reporting
-                                channel for review.
-                            </span>
-                        </div>
-
-
-                        <div class="report-item">
-                            <strong>
-                                04 — Escalate when necessary
-                            </strong>
-
-                            <span>
-                                If there is suspected fraud or immediate
-                                danger, contact the appropriate authorities.
-                            </span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ACCESSIBILITY -->
-        <section id="accessibility" class="accessibility">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="eyebrow">
-                        ACCESSIBILITY CHECK
-                    </span>
-
-                    <h2>
-                        You should not need a mouse to use Trustrida.
-                    </h2>
-
-                    <p>
-                        This page is designed so that important information
-                        and actions can be reached with a keyboard alone.
+                <div>
+                    <p class="eyebrow eyebrow--invert">Something went wrong?</p>
+                    <h2>Do not disappear into a WhatsApp chat.</h2>
+                    <p style="margin-bottom: var(--space-6);">
+                        If the rider, vehicle, contact details or delivery do not match the
+                        verification information, stop and report it. A mismatch is worth
+                        pausing over, even when the person in front of you sounds convincing.
                     </p>
 
+                    <div class="btn-row">
+                        <a class="btn btn--invert" href="mailto:support@trustrida.com">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2.5 6.5 9.5 6.5 9.5-6.5"/></svg>
+                            Report a problem
+                        </a>
+                        <a class="btn btn--ghost-invert" href="contact.html">Contact support</a>
+                    </div>
                 </div>
 
+                <div class="report-list">
+                    <div class="report-item">
+                        <strong>01 &mdash; Stop the transaction</strong>
+                        <span>Do not continue with payment if the verification details do not match what you can see.</span>
+                    </div>
+                    <div class="report-item">
+                        <strong>02 &mdash; Record the mismatch</strong>
+                        <span>Keep the verification link and any relevant transaction information.</span>
+                    </div>
+                    <div class="report-item">
+                        <strong>03 &mdash; Contact support</strong>
+                        <span>Submit the problem through the reporting channel so it can be reviewed.</span>
+                    </div>
+                    <div class="report-item">
+                        <strong>04 &mdash; Escalate when necessary</strong>
+                        <span>If there is suspected fraud or immediate danger, contact the appropriate authorities.</span>
+                    </div>
+                </div>
 
-                <div class="access-grid">
+            </div>
+        </section>
 
-                    <article class="access-card">
 
-                        <h3>
-                            ✓ Keyboard navigation
-                        </h3>
+        <!-- ============ ACCESSIBILITY ============ -->
+        <section class="section section--white" id="accessibility">
+            <div class="container">
 
-                        <p>
-                            Interactive links can be reached using Tab,
-                            activated with Enter, and reversed with
-                            Shift + Tab.
-                        </p>
+                <div class="section-header section-header--center">
+                    <p class="eyebrow">Accessibility</p>
+                    <h2>You should not need a mouse to use TrustRida.</h2>
+                    <p>
+                        Verification is useless if the person who needs it cannot reach it.
+                        Every page is built so the important information and actions work
+                        with a keyboard alone.
+                    </p>
+                </div>
 
+                <div class="grid grid--3">
+
+                    <article class="feature-card">
+                        <div class="icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h.01M18 14h.01M9.5 14h5"/></svg>
+                        </div>
+                        <h3>Keyboard navigation</h3>
+                        <p>Links and controls are reachable with Tab, activated with Enter, and reversed with Shift + Tab.</p>
                     </article>
 
-
-                    <article class="access-card">
-
-                        <h3>
-                            ✓ Skip navigation
-                        </h3>
-
-                        <p>
-                            Keyboard users can press Tab when the page loads
-                            and select "Skip to main content."
-                        </p>
-
+                    <article class="feature-card">
+                        <div class="icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 5H19V11"/><path d="M19 5 5 19"/></svg>
+                        </div>
+                        <h3>Skip navigation</h3>
+                        <p>Press Tab when a page loads and the first stop is &ldquo;Skip to main content&rdquo;.</p>
                     </article>
 
-
-                    <article class="access-card">
-
-                        <h3>
-                            ✓ Visible focus
-                        </h3>
-
-                        <p>
-                            Focused elements receive a visible outline so
-                            keyboard users can identify where they are.
-                        </p>
-
+                    <article class="feature-card">
+                        <div class="icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <h3>Visible focus</h3>
+                        <p>Focused elements get a high-contrast outline, so keyboard users always know where they are.</p>
                     </article>
 
-
-                    <article class="access-card">
-
-                        <h3>
-                            ✓ Logical structure
-                        </h3>
-
-                        <p>
-                            The page uses headings, navigation, sections,
-                            articles and labelled regions to make its
-                            structure easier to understand.
-                        </p>
-
+                    <article class="feature-card">
+                        <div class="icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13"/></svg>
+                        </div>
+                        <h3>Logical structure</h3>
+                        <p>Headings, landmarks and labelled regions make each page understandable to a screen reader.</p>
                     </article>
 
-
-                    <article class="access-card">
-
-                        <h3>
-                            ✓ Reduced motion
-                        </h3>
-
-                        <p>
-                            Users who prefer reduced motion are not forced
-                            into smooth scrolling effects.
-                        </p>
-
+                    <article class="feature-card">
+                        <div class="icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                        </div>
+                        <h3>Reduced motion</h3>
+                        <p>If your device asks for reduced motion, transitions and smooth scrolling are switched off.</p>
                     </article>
 
-
-                    <article class="access-card">
-
-                        <h3>
-                            ✓ Responsive layout
-                        </h3>
-
-                        <p>
-                            Content adapts to smaller screens without hiding
-                            essential verification information.
-                        </p>
-
+                    <article class="feature-card">
+                        <div class="icon-tile">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg>
+                        </div>
+                        <h3>Responsive layout</h3>
+                        <p>Content adapts to small screens without hiding any of the verification information.</p>
                     </article>
 
                 </div>
 
             </div>
+        </section>
 
+
+        <!-- ============ CTA ============ -->
+        <section class="section section--sunken">
+            <div class="container">
+                <div class="cta-band">
+                    <div class="cta-band__text">
+                        <h2>Get your riders verified.</h2>
+                        <p>One verification covers future orders, with clearance shown per delivery so buyers always see today's status.</p>
+                    </div>
+                    <div class="btn-row">
+                        <a class="btn btn--invert" href="erikah.html">Start verification</a>
+                        <a class="btn btn--ghost-invert" href="okakamushunu.html">Read the FAQ</a>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
 
+    <footer class="site-footer">
 
-    <footer>
+        <div class="footer-container">
 
-        <div class="footer-inner">
-
-            <div>
-                <strong>Trustrida</strong>
-
-                <p>
-                    Verify first. Pay with better information.
-                </p>
+            <div class="footer-brand">
+                <a class="logo" href="index.html" aria-label="TrustRida — home">
+                    <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="34" height="34">
+                    <span class="logo-word">Trust<span>Rida</span></span>
+                </a>
+                <p>Verified riders and a shared delivery record, so independent sellers and their buyers can both see what happened.</p>
             </div>
 
-            <p>
-                Trust is information, not a promise of zero risk.
-            </p>
+            <div class="footer-col">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="Daelxsa.html">Why TrustRida</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="energy.html">Verification</a></li>
+                    <li><a href="oluwatoks.html">Sample Record</a></li>
+                </ul>
+            </div>
 
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <a href="index.html">Home</a>
-                <a href="Daelxsa.html">Why TrustRida</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="oluwatoks.html">The Details</a>
-                <a href="energy.html" class="active" aria-current="page">Verrification</a>
-                <a href="okakamushunu.html">Guide &amp; FAQ</a>
-                <a href="contact.html">Contact</a>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="okakamushunu.html">Guide &amp; FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="erikah.html">Get Started</a></li>
+                    <li><a href="energy.html#report">Report a problem</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Reach us</h3>
+                <ul>
+                    <li><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></li>
+                    <li><a href="mailto:support@trustrida.com">support@trustrida.com</a></li>
+                    <li><p>Lagos, Nigeria</p></li>
+                </ul>
             </div>
 
         </div>
 
+        <div class="footer-bottom">
+            <div class="footer-bottom__inner">
+                <p>&copy; <span data-year>2026</span> TrustRida. All rights reserved.</p>
+                <p>Verification is information, not a guarantee of zero risk.</p>
+            </div>
+        </div>
+
     </footer>
 
-
 </body>
+
 </html>

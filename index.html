@@ -1,252 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102a43">
 
-    <title>TrustRida | Safe Delivery Tracking</title>
+    <title>TrustRida | Know who is bringing your order before you pay</title>
+    <meta name="description" content="TrustRida verifies the dispatch rider behind an order and keeps a shared delivery record, so independent sellers and first-time buyers can both see what actually happened.">
 
-    <!-- Brand CSS MUST come first -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TrustRida">
+    <meta property="og:title" content="TrustRida | Know who is bringing your order before you pay">
+    <meta property="og:description" content="TrustRida verifies the dispatch rider behind an order and keeps a shared delivery record, so independent sellers and first-time buyers can both see what actually happened.">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/brand.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
 
-    <!-- Page-specific CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
 
+    <a class="skip-link" href="#main">Skip to main content</a>
+
     <header class="site-header">
         <div class="nav-container">
-            <a href="index.html" class="logo" aria-label="TrustRida home">
-                <img src="https://i.postimg.cc/3wX8hdDJ/6a94c77d-6948-4028-94ad-6707c4aa324a.jpg" alt="TrustRida logo" class="brand-logo-image">
+
+            <a class="logo" href="index.html" aria-label="TrustRida — home">
+                <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="34" height="34">
+                <span class="logo-word">Trust<span>Rida</span></span>
             </a>
 
-            <nav class="main-nav" aria-label="Main navigation">
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <nav class="main-nav" id="primary-nav" aria-label="Primary">
                 <a href="index.html" class="active" aria-current="page">Home</a>
                 <a href="Daelxsa.html">Why TrustRida</a>
                 <a href="how-it-works.html">How It Works</a>
                 <a href="oluwatoks.html">The Details</a>
                 <a href="energy.html">Verification</a>
-                <a href="okakamushunu.html">Guide & FAQ</a>
+                <a href="okakamushunu.html">Guide &amp; FAQ</a>
                 <a href="contact.html">Contact</a>
             </nav>
 
-            <a href="erikah.html" class="nav-button">
-                Get Started
-            </a>
+            <div class="nav-cta">
+                <a class="btn btn--primary btn--sm" href="erikah.html">Get Started</a>
+            </div>
+
         </div>
     </header>
 
-    <main>
+    <main id="main">
+
+        <!-- ============ HERO ============ -->
         <section class="hero">
-            <div class="hero-content">
-                <p class="eyebrow">SMART DELIVERY TRACKING</p>
-                <h1>Delivery tracking that builds trust.</h1>
-                <p class="hero-subtitle">
-                    TrustRida helps traders, buyers, and riders stay aligned with
-                    safe, transparent, real-time updates from pickup to confirmation.
-                </p>
+            <div class="container hero__inner">
 
-                <div class="hero-actions">
-                    <a href="contact.html" class="cta-button primary">Start Tracking</a>
-                    <a href="#how-it-works" class="cta-button secondary">See How It Works</a>
+                <div class="hero__content">
+                    <p class="eyebrow">Verify &middot; Track &middot; Confirm</p>
+
+                    <h1>Know who is coming <em>before you pay.</em></h1>
+
+                    <p class="hero__sub">
+                        TrustRida gives an independent seller one link to send a buyer:
+                        who is delivering the order, what has been checked about them,
+                        and where the order has reached. One record, both sides.
+                    </p>
+
+                    <div class="hero__actions">
+                        <a class="btn btn--primary" href="erikah.html">
+                            Get started
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                        </a>
+                        <a class="btn btn--secondary" href="how-it-works.html">See how it works</a>
+                    </div>
+
+                    <ul class="hero__points">
+                        <li>Rider details verified</li>
+                        <li>Shared delivery record</li>
+                        <li>Works on any phone</li>
+                    </ul>
                 </div>
 
-                <ul class="hero-points" aria-label="TrustRida benefits">
-                    <li>Real-time delivery updates</li>
-                    <li>Secure transaction steps</li>
-                    <li>Built for small businesses</li>
-                </ul>
-            </div>
+                <div class="hero__visual">
+                    <div class="track-card" role="img" aria-label="Example TrustRida delivery record showing a verified rider, a pickup confirmed at 10:42, an order in transit, and delivery awaiting buyer confirmation.">
 
-            <div class="hero-visual" aria-label="TrustRida dashboard preview">
-                <div class="dashboard-card">
-                    <div class="dashboard-header">
-                        <span class="dot green"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot red"></span>
-                    </div>
+                        <div class="track-card__head">
+                            <div>
+                                <p class="track-card__title">Delivery record</p>
+                                <span class="track-card__ref">TR-4821-LG &middot; Example</span>
+                            </div>
+                            <span class="badge badge--live">In transit</span>
+                        </div>
 
-                    <div class="route-box">
-                        <div class="route-row">
-                            <span>Pickup</span>
-                            <span class="check">✓</span>
+                        <div class="track-card__body">
+                            <ol class="timeline">
+                                <li class="timeline__row timeline__row--done">
+                                    <span class="timeline__label">Order confirmed</span>
+                                    <span class="timeline__time">09:15</span>
+                                </li>
+                                <li class="timeline__row timeline__row--done">
+                                    <span class="timeline__label">Rider verified &amp; assigned</span>
+                                    <span class="timeline__time">10:02</span>
+                                </li>
+                                <li class="timeline__row timeline__row--active">
+                                    <span class="timeline__label">Picked up from seller</span>
+                                    <span class="timeline__time">10:42</span>
+                                </li>
+                                <li class="timeline__row timeline__row--pending">
+                                    <span class="timeline__label">Delivered &amp; confirmed</span>
+                                    <span class="timeline__time">Pending</span>
+                                </li>
+                            </ol>
                         </div>
-                        <div class="route-line"></div>
-                        <div class="route-row">
-                            <span>In transit</span>
-                            <span class="live">Live</span>
-                        </div>
-                        <div class="route-line short"></div>
-                        <div class="route-row">
-                            <span>Delivery</span>
-                            <span class="pending">Waiting</span>
-                        </div>
-                    </div>
 
-                    <div class="mini-stats">
-                        <div>
-                            <strong>98.7%</strong>
-                            <span>On-time</span>
+                        <div class="track-card__foot">
+                            <div class="track-stat">
+                                <strong>ID</strong>
+                                <span>Checked before dispatch</span>
+                            </div>
+                            <div class="track-stat">
+                                <strong>Plate</strong>
+                                <span>Recorded on this order</span>
+                            </div>
                         </div>
-                        <div>
-                            <strong>2.4k</strong>
-                            <span>Deliveries</span>
-                        </div>
+
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <section id="problems" class="problems-section">
+
+        <!-- ============ THE GAP ============ -->
+        <section class="section section--white">
             <div class="container">
+
+                <div class="section-header section-header--center">
+                    <p class="eyebrow">The trust gap</p>
+                    <h2>Small trade runs on screenshots. Screenshots prove nothing.</h2>
+                    <p>
+                        A seller on Instagram or WhatsApp asks a stranger to send money first.
+                        Both sides are guessing. These are the gaps TrustRida closes.
+                    </p>
+                </div>
+
+                <div class="grid grid--3">
+
+                    <article class="pair-card">
+                        <div class="pair-card__problem">
+                            <div class="icon-tile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.9 4.2A10.9 10.9 0 0 1 12 4c7 0 10 8 10 8a18.5 18.5 0 0 1-2.4 3.6M6.6 6.6A18.4 18.4 0 0 0 2 12s3 8 10 8a10.9 10.9 0 0 0 5.4-1.4"/><path d="M14.1 14.1a3 3 0 1 1-4.2-4.2"/><path d="m2 2 20 20"/></svg>
+                            </div>
+                            <h3>Nobody knows who is riding</h3>
+                            <p>A phone number and a first name is all the buyer gets. The person at the gate could be anyone.</p>
+                        </div>
+                        <div class="pair-card__solution">
+                            <strong>What TrustRida does</strong>
+                            <p>Shows the rider's checked identity, registration and bike plate, tied to that specific order.</p>
+                        </div>
+                    </article>
+
+                    <article class="pair-card">
+                        <div class="pair-card__problem">
+                            <div class="icon-tile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/><path d="M8 9h8M8 12.5h5"/></svg>
+                            </div>
+                            <h3>Three chats, no single story</h3>
+                            <p>The seller, the rider and the buyer each hold a different version of the same delivery.</p>
+                        </div>
+                        <div class="pair-card__solution">
+                            <strong>What TrustRida does</strong>
+                            <p>One record all three can open, timestamped as each step actually happens.</p>
+                        </div>
+                    </article>
+
+                    <article class="pair-card">
+                        <div class="pair-card__problem">
+                            <div class="icon-tile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/><path d="m2 2 20 20"/></svg>
+                            </div>
+                            <h3>Proof that can be faked</h3>
+                            <p>Transfer receipts and profile screenshots are trivially edited, and they say nothing about the goods.</p>
+                        </div>
+                        <div class="pair-card__solution">
+                            <strong>What TrustRida does</strong>
+                            <p>Every link opens live on our site with the current status. A picture of a page cannot do that.</p>
+                        </div>
+                    </article>
+
+                    <article class="pair-card">
+                        <div class="pair-card__problem">
+                            <div class="icon-tile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><path d="m2 2 20 20"/></svg>
+                            </div>
+                            <h3>Silence after handover</h3>
+                            <p>Once the rider leaves, the buyer has no idea whether the order is coming or already lost.</p>
+                        </div>
+                        <div class="pair-card__solution">
+                            <strong>What TrustRida does</strong>
+                            <p>Status moves as the order moves &mdash; assigned, picked up, delivered, confirmed.</p>
+                        </div>
+                    </article>
+
+                    <article class="pair-card">
+                        <div class="pair-card__problem">
+                            <div class="icon-tile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+                            </div>
+                            <h3>Disputes with no evidence</h3>
+                            <p>When something goes wrong, it becomes one person's word against another's.</p>
+                        </div>
+                        <div class="pair-card__solution">
+                            <strong>What TrustRida does</strong>
+                            <p>The record shows what was handed over, by whom and when &mdash; before the argument starts.</p>
+                        </div>
+                    </article>
+
+                    <article class="pair-card">
+                        <div class="pair-card__problem">
+                            <div class="icon-tile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 1 0 8.5 8.5"/><path d="M12 7v5l3 2"/><path d="M16 3.5h5v5"/></svg>
+                            </div>
+                            <h3>Good sellers lose the sale</h3>
+                            <p>An honest trader is judged by the last person who scammed the buyer, not by their own record.</p>
+                        </div>
+                        <div class="pair-card__solution">
+                            <strong>What TrustRida does</strong>
+                            <p>Gives a real seller something checkable to send, so trust does not depend on charm.</p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============ HOW IT WORKS ============ -->
+        <section class="section section--sunken" id="how-it-works">
+            <div class="container">
+
+                <div class="section-header section-header--center">
+                    <p class="eyebrow">How it works</p>
+                    <h2>Three steps, and everyone sees the same thing.</h2>
+                    <p>No app to install and no account needed to check a link. The buyer just opens it.</p>
+                </div>
+
+                <div class="steps-flow">
+
+                    <article class="step-card">
+                        <span class="step-card__num">01</span>
+                        <h3>Seller creates the order</h3>
+                        <p>Add the item, the buyer's area and the rider handling it. TrustRida generates one link and one reference code.</p>
+                        <div class="step-card__meta"><span class="badge badge--review">Order opened</span></div>
+                    </article>
+
+                    <article class="step-card">
+                        <span class="step-card__num">02</span>
+                        <h3>Buyer checks before paying</h3>
+                        <p>The link shows the rider's verified details and the bike plate for that delivery. The buyer decides with facts, not vibes.</p>
+                        <div class="step-card__meta"><span class="badge badge--verified">Rider verified</span></div>
+                    </article>
+
+                    <article class="step-card">
+                        <span class="step-card__num">03</span>
+                        <h3>Handover is recorded</h3>
+                        <p>Pickup and delivery are stamped on the record as they happen, and the buyer confirms receipt to close it.</p>
+                        <div class="step-card__meta"><span class="badge badge--live">Live status</span></div>
+                    </article>
+
+                </div>
+
+                <div class="btn-row" style="justify-content: center; margin-top: var(--space-6);">
+                    <a class="btn btn--secondary" href="how-it-works.html">See the full flow</a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============ WHO IT IS FOR ============ -->
+        <section class="section section--white">
+            <div class="container">
+
                 <div class="section-header">
-                    <p class="section-kicker">THE PROBLEMS WE SOLVE</p>
-                    <h2>Trusted delivery systems for modern trade.</h2>
-                    <p>We help businesses and teams remove risk, confusion, and delays from the delivery journey.</p>
+                    <p class="eyebrow">Who it is for</p>
+                    <h2>Built for the three people in every delivery.</h2>
+                    <p>Each side needs a different thing from the same record.</p>
                 </div>
 
-                <div class="problems-grid">
-                    <div class="problem-card">
-                        <div class="icon">📉</div>
-                        <h3>No Visibility</h3>
-                        <p>People are unsure where a package is or whether it has been received.</p>
-                    </div>
+                <div class="grid grid--3">
 
-                    <div class="problem-card">
-                        <div class="icon">📱</div>
-                        <h3>Poor Communication</h3>
-                        <p>Riders, traders, and buyers stay disconnected during delivery handoffs.</p>
-                    </div>
+                    <article class="role-card">
+                        <span class="badge badge--verified role-card__tag">Sellers</span>
+                        <h3>Independent traders</h3>
+                        <p>You sell on Instagram, WhatsApp or a market stall and you keep losing first-time buyers who are scared to pay first.</p>
+                        <ul class="check-list">
+                            <li>Send proof instead of pleading</li>
+                            <li>Build a record buyers can check</li>
+                            <li>Fewer &ldquo;where is my order&rdquo; messages</li>
+                        </ul>
+                        <a class="link-arrow" href="Daelxsa.html">
+                            Why sellers use it
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                        </a>
+                    </article>
 
-                    <div class="problem-card">
-                        <div class="icon">🌐</div>
-                        <h3>No Trust Signal</h3>
-                        <p>Without a clear record, customers lose confidence in the process.</p>
-                    </div>
+                    <article class="role-card">
+                        <span class="badge badge--review role-card__tag">Buyers</span>
+                        <h3>First-time customers</h3>
+                        <p>You found a seller online, the price is right, and you have been burned before by paying a stranger.</p>
+                        <ul class="check-list">
+                            <li>See the rider before money moves</li>
+                            <li>Match the face and plate at your door</li>
+                            <li>Follow the order without chasing anyone</li>
+                        </ul>
+                        <a class="link-arrow" href="okakamushunu.html">
+                            Questions buyers ask
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                        </a>
+                    </article>
 
-                    <div class="problem-card">
-                        <div class="icon">🎥</div>
-                        <h3>Weak Tracking</h3>
-                        <p>Manual updates create delays, missed confirmations, and confusion.</p>
-                    </div>
+                    <article class="role-card">
+                        <span class="badge badge--pending role-card__tag">Riders</span>
+                        <h3>Dispatch riders</h3>
+                        <p>You do the work honestly and still get treated like a risk at every gate you arrive at.</p>
+                        <ul class="check-list">
+                            <li>Get verified once, reuse it</li>
+                            <li>Arrive already expected</li>
+                            <li>Handovers logged, not disputed</li>
+                        </ul>
+                        <a class="link-arrow" href="energy.html">
+                            How verification works
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                        </a>
+                    </article>
 
-                    <div class="problem-card">
-                        <div class="icon">💰</div>
-                        <h3>Money Lost</h3>
-                        <p>Unclear delivery status can lead to disputes, complaints, and lost revenue.</p>
-                    </div>
-
-                    <div class="problem-card">
-                        <div class="icon">📊</div>
-                        <h3>No Brand Reliability</h3>
-                        <p>Customers hesitate when the transaction process feels shaky or unclear.</p>
-                    </div>
                 </div>
 
-                <div class="cta-center">
-                    <a href="contact.html" class="btn-primary">Let's Solve This Together</a>
-                </div>
             </div>
         </section>
 
-        <section id="how-it-works" class="how-it-works">
+
+        <!-- ============ VERIFICATION PREVIEW ============ -->
+        <section class="section section--cream">
+            <div class="container split split--wide-left">
+
+                <div>
+                    <p class="eyebrow eyebrow--amber">What gets verified</p>
+                    <h2>Specific to the delivery, not a general profile.</h2>
+                    <p class="lede" style="margin-bottom: var(--space-5);">
+                        A badge on a profile page is easy to fake and easy to reuse. TrustRida ties
+                        each check to the order in front of you, so the buyer is looking at the
+                        rider actually on the way.
+                    </p>
+
+                    <ul class="check-list" style="margin-bottom: var(--space-6);">
+                        <li>Identity information checked before dispatch</li>
+                        <li>Government or company registration ID recorded</li>
+                        <li>Bike plate number attached to this order</li>
+                        <li>Phone contact verified and reachable</li>
+                        <li>Dispatch clearance shown as live status</li>
+                    </ul>
+
+                    <div class="notice">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+                        <div>
+                            <h3>Verified does not mean risk-free</h3>
+                            <p>We tell you what has been checked and what has not. We never promise an outcome. <a href="energy.html#limits">Read our limits</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="proof-card">
+                        <div class="proof-card__head">
+                            <div>
+                                <h3>Rider verification</h3>
+                                <span>Example profile</span>
+                            </div>
+                            <span class="badge badge--verified">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                                Verified
+                            </span>
+                        </div>
+
+                        <div class="proof-card__rider">
+                            <span class="avatar" aria-hidden="true">AM</span>
+                            <div>
+                                <h4>Alex M.</h4>
+                                <p>Dispatch rider &middot; Yaba round</p>
+                            </div>
+                        </div>
+
+                        <ul class="proof-card__checks">
+                            <li class="proof-check">
+                                <span class="proof-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                                Identity checked
+                            </li>
+                            <li class="proof-check">
+                                <span class="proof-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                                Registration ID
+                            </li>
+                            <li class="proof-check">
+                                <span class="proof-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                                Bike plate
+                                <span class="proof-check__value">LSD-482-XA</span>
+                            </li>
+                            <li class="proof-check">
+                                <span class="proof-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                                Phone contact verified
+                            </li>
+                            <li class="proof-check">
+                                <span class="proof-check__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                                Dispatch clearance active
+                            </li>
+                        </ul>
+
+                        <p class="proof-card__foot">Sample data shown for illustration. A real page loads live status.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============ CTA ============ -->
+        <section class="section section--white">
             <div class="container">
-                <div class="section-header alt">
-                    <p class="section-kicker">HOW IT WORKS</p>
-                    <h2>A simple flow that keeps every delivery visible.</h2>
-                </div>
-
-                <div class="steps-container">
-                    <div class="step">
-                        <span class="step-number">01</span>
-                        <h3>Send</h3>
-                        <p>A trader creates a delivery and shares the details instantly.</p>
+                <div class="cta-band">
+                    <div class="cta-band__text">
+                        <h2>Give your next buyer something to check.</h2>
+                        <p>Set up your first verified handover in a few minutes. No app download, and your buyer needs no account to open the link.</p>
                     </div>
-
-                    <div class="step">
-                        <span class="step-number">02</span>
-                        <h3>Track</h3>
-                        <p>All parties follow the item with live updates and status changes.</p>
-                    </div>
-
-                    <div class="step">
-                        <span class="step-number">03</span>
-                        <h3>Confirm</h3>
-                        <p>At delivery, the receiver confirms and closes the process with confidence.</p>
+                    <div class="btn-row">
+                        <a class="btn btn--invert" href="erikah.html">Get started</a>
+                        <a class="btn btn--ghost-invert" href="contact.html">Talk to us</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="features">
-            <div class="container">
-                <div class="section-header alt">
-                    <p class="section-kicker">WHY TRUSTRIDA</p>
-                    <h2>Everything you need to make every handoff feel secure.</h2>
-                </div>
-
-                <div class="features-container">
-                    <div class="feature">
-                        <div class="feature-icon">⏱</div>
-                        <h3>Real-Time Tracking</h3>
-                        <p>See where your package is at every point of the journey.</p>
-                    </div>
-
-                    <div class="feature">
-                        <div class="feature-icon">🔒</div>
-                        <h3>Secure Transactions</h3>
-                        <p>Built-in confirmation steps help everyone stay protected.</p>
-                    </div>
-
-                    <div class="feature">
-                        <div class="feature-icon">✅</div>
-                        <h3>Simple to Use</h3>
-                        <p>No complicated system. Get started quickly and keep moving.</p>
-                    </div>
-
-                    <div class="feature">
-                        <div class="feature-icon">📲</div>
-                        <h3>Mobile Ready</h3>
-                        <p>Fast access from phone or desktop wherever the journey moves.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="site-footer">
+
         <div class="footer-container">
+
             <div class="footer-brand">
-                <a href="index.html" class="logo logo-footer" aria-label="TrustRida home">
-                    <img src="https://i.postimg.cc/3wX8hdDJ/6a94c77d-6948-4028-94ad-6707c4aa324a.jpg" alt="TrustRida logo" class="brand-logo-image">
+                <a class="logo" href="index.html" aria-label="TrustRida — home">
+                    <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="34" height="34">
+                    <span class="logo-word">Trust<span>Rida</span></span>
                 </a>
-                <p>Making small-trade deliveries safer, clearer, and more trustworthy.</p>
+                <p>Verified riders and a shared delivery record, so independent sellers and their buyers can both see what happened.</p>
             </div>
 
-            <div class="footer-contact">
-                <h3>Contact</h3>
-                <p><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></p>
-                <p><a href="mailto:support@trustrida.com">support@trustrida.com</a></p>
-                <p>Nigeria</p>
+            <div class="footer-col">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="Daelxsa.html">Why TrustRida</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="energy.html">Verification</a></li>
+                    <li><a href="oluwatoks.html">Sample Record</a></li>
+                </ul>
             </div>
 
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <a href="index.html" class="active" aria-current="page">Home</a>
-                <a href="Daelxsa.html">Why TrustRida</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="oluwatoks.html">The Details</a>
-                <a href="energy.html">Verification</a>
-                <a href="okakamushunu.html">Guide & FAQ</a>
-                <a href="contact.html">Contact</a>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="okakamushunu.html">Guide &amp; FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="erikah.html">Get Started</a></li>
+                    <li><a href="energy.html#report">Report a problem</a></li>
+                </ul>
             </div>
+
+            <div class="footer-col">
+                <h3>Reach us</h3>
+                <ul>
+                    <li><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></li>
+                    <li><a href="mailto:support@trustrida.com">support@trustrida.com</a></li>
+                    <li><p>Lagos, Nigeria</p></li>
+                </ul>
+            </div>
+
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 TrustRida. All rights reserved.</p>
+            <div class="footer-bottom__inner">
+                <p>&copy; <span data-year>2026</span> TrustRida. All rights reserved.</p>
+                <p>Verification is information, not a guarantee of zero risk.</p>
+            </div>
         </div>
+
     </footer>
 
 </body>
+
 </html>

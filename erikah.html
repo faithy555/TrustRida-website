@@ -1,377 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Initiate Handover | TrustRida</title>
-  <style>
-    :root {
-      --primary-green: #087F5B;
-      --primary-green-hover: #066347;
-      --light-green-bg: #E6FCF5;
-      --bg-color: #f8fafc;
-      --card-bg: #ffffff;
-      --text-color: #0f172a;
-      --muted-text: #64748b;
-      --border-color: #e2e8f0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102a43">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
+    <title>Get Started | Set up your first verified handover | TrustRida</title>
+    <meta name="description" content="Set up your first TrustRida handover: tell us about your business and your riders, and we will get your first verified delivery link ready.">
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TrustRida">
+    <meta property="og:title" content="Get Started | Set up your first verified handover | TrustRida">
+    <meta property="og:description" content="Set up your first TrustRida handover: tell us about your business and your riders, and we will get your first verified delivery link ready.">
+    <meta name="twitter:card" content="summary_large_image">
 
-    /* Header & Nav Styles */
-    .site-header {
-      background-color: var(--card-bg);
-      border-bottom: 1px solid var(--border-color);
-      width: 100%;
-      padding: 16px 24px;
-    }
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--primary-green);
-      text-decoration: none;
-    }
+    <link rel="stylesheet" href="css/brand.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
 
-    .main-nav {
-      display: flex;
-      gap: 20px;
-    }
-
-    .main-nav a {
-      text-decoration: none;
-      color: var(--muted-text);
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .main-nav a:hover,
-    .main-nav a.active {
-      color: var(--primary-green);
-      font-weight: 600;
-    }
-
-    .nav-button {
-      background-color: var(--primary-green);
-      color: #ffffff;
-      padding: 8px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: background-color 0.2s;
-    }
-
-    .nav-button:hover {
-      background-color: var(--primary-green-hover);
-    }
-
-    /* Main Section Styles */
-    main {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
-    }
-
-    .form-container {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      max-width: 480px;
-      width: 100%;
-      padding: 32px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    }
-
-    .form-header {
-      margin-bottom: 24px;
-    }
-
-    .form-header h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .form-header p {
-      color: var(--muted-text);
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-
-    .trust-indicator {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background-color: var(--light-green-bg);
-      border: 1px solid #B2F2BB;
-      padding: 10px 12px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      color: var(--primary-green);
-      margin-bottom: 24px;
-      font-weight: 500;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.875rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .form-group input, 
-    .form-group select, 
-    .form-group textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      font-size: 0.95rem;
-      color: var(--text-color);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .form-group input:focus, 
-    .form-group select:focus, 
-    .form-group textarea:focus {
-      border-color: var(--primary-green);
-    }
-
-    .form-row {
-      display: flex;
-      gap: 12px;
-    }
-
-    .btn-submit {
-      width: 100%;
-      background-color: var(--primary-green);
-      color: #ffffff;
-      border: none;
-      padding: 12px;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.2s;
-      margin-top: 8px;
-    }
-
-    .btn-submit:hover {
-      background-color: var(--primary-green-hover);
-    }
-
-    .security-note {
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--muted-text);
-      margin-top: 12px;
-    }
-
-    /* Footer Styles */
-    .site-footer {
-      background-color: var(--card-bg);
-      border-top: 1px solid var(--border-color);
-      padding: 40px 20px 20px;
-      margin-top: auto;
-    }
-
-    .footer-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-
-    .footer-brand, .footer-contact, .footer-links {
-      flex: 1;
-      min-width: 200px;
-    }
-
-    .footer-brand p {
-      color: var(--muted-text);
-      font-size: 0.875rem;
-      margin-top: 10px;
-      line-height: 1.4;
-    }
-
-    .footer-contact h3, .footer-links h3 {
-      font-size: 1rem;
-      margin-bottom: 12px;
-    }
-
-    .footer-contact p, .footer-links a {
-      font-size: 0.875rem;
-      color: var(--muted-text);
-      line-height: 1.6;
-      text-decoration: none;
-      display: block;
-    }
-
-    .footer-contact a {
-      color: var(--muted-text);
-      text-decoration: none;
-    }
-
-    .footer-contact a:hover, .footer-links a:hover {
-      color: var(--primary-green);
-    }
-
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-color);
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--muted-text);
-    }
-  </style>
+    <script src="js/main.js" defer></script>
 </head>
+
 <body>
 
-  <!-- ================= HEADER / NAVIGATION ================= -->
-  <header class="site-header">
-      <div class="nav-container">
-          <a href="index.html" class="logo">
-              TrustRida
-          </a>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-          <nav class="main-nav" aria-label="Main navigation">
-               <a href="index.html" class="active" aria-current="page">Home</a>
+    <header class="site-header">
+        <div class="nav-container">
+
+            <a class="logo" href="index.html" aria-label="TrustRida — home">
+                <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="34" height="34">
+                <span class="logo-word">Trust<span>Rida</span></span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <nav class="main-nav" id="primary-nav" aria-label="Primary">
+                <a href="index.html">Home</a>
                 <a href="Daelxsa.html">Why TrustRida</a>
                 <a href="how-it-works.html">How It Works</a>
                 <a href="oluwatoks.html">The Details</a>
-                <a href="energy.html">Verrification</a>
-                <a href="okakamushunu.html">Guide & FAQ</a>
+                <a href="energy.html">Verification</a>
+                <a href="okakamushunu.html">Guide &amp; FAQ</a>
                 <a href="contact.html">Contact</a>
-          </nav>
+            </nav>
 
-          <a href="request.html" class="nav-button">
-              Get Started
-          </a>
-      </div>
-  </header>
+            <div class="nav-cta">
+                <a class="btn btn--primary btn--sm" href="erikah.html">Get Started</a>
+            </div>
 
-  <main>
-    <div class="form-container">
-      <div class="form-header">
-        <h2>Start Your Request</h2>
-        <p>Enter your details below to begin the transaction and set up a buyer verification step.</p>
-      </div>
+        </div>
+    </header>
 
-      <div class="trust-indicator">
-        <span>✓ Verified handover process</span>
-      </div>
+    <main id="main">
 
-      <form onsubmit="event.preventDefault(); alert('Handover logged successfully.');">
-        <div class="form-row">
-          <div class="form-group" style="flex: 1;">
-            <label for="fname">First name</label>
-            <input type="text" id="fname" placeholder="Alex" required>
-          </div>
-          <div class="form-group" style="flex: 1;">
-            <label for="lname">Last name</label>
-            <input type="text" id="lname" placeholder="Morgan" required>
-          </div>
+        <!-- ============ PAGE HERO ============ -->
+        <section class="page-hero page-hero--center">
+            <div class="container">
+                <div class="page-hero__inner">
+                    <nav class="crumb crumb--invert" aria-label="Breadcrumb" style="justify-content: center;">
+                        <a href="index.html">Home</a>
+                        <span aria-hidden="true">/</span>
+                        <span aria-current="page">Get Started</span>
+                    </nav>
+
+                    <p class="eyebrow eyebrow--invert">Get started</p>
+                    <h1>Set up your first <em>verified handover.</em></h1>
+                    <p>
+                        Tell us about your business and how you deliver. We will get your
+                        riders verified and your first checkable link ready to send.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============ WHAT HAPPENS NEXT ============ -->
+        <section class="section section--tight section--white">
+            <div class="container">
+                <div class="steps-flow">
+
+                    <article class="step-card">
+                        <span class="step-card__num">01</span>
+                        <h3>You send this form</h3>
+                        <p>Two minutes. We only ask for what we need to set you up properly.</p>
+                    </article>
+
+                    <article class="step-card">
+                        <span class="step-card__num">02</span>
+                        <h3>We verify your riders</h3>
+                        <p>Identity, registration and bike plate are checked and recorded against their profile.</p>
+                    </article>
+
+                    <article class="step-card">
+                        <span class="step-card__num">03</span>
+                        <h3>You send your first link</h3>
+                        <p>Open an order, share the link, and let your buyer check before they pay.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============ FORM ============ -->
+        <section class="section section--sunken">
+            <div class="container">
+                <div class="form-page">
+                    <div class="form-page__inner">
+
+                        <div class="form-panel">
+
+                            <div class="badge badge--verified" style="margin-bottom: var(--space-4);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                                Verified handover setup
+                            </div>
+
+                            <h2 style="font-size: var(--step-2); margin-bottom: var(--space-2);">Start your request</h2>
+                            <p class="muted small" style="margin-bottom: var(--space-6);">
+                                Nothing here is published. These details are only used to set up your account and verify your riders.
+                            </p>
+
+                            <form class="form-grid" data-demo-form novalidate>
+
+                                <div class="form-status">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-5"/></svg>
+                                    <span>Request received. We will reach out to walk you through verifying your riders.</span>
+                                </div>
+
+                                <div class="field-row">
+                                    <div class="field">
+                                        <label for="fname">First name</label>
+                                        <input type="text" id="fname" name="fname" autocomplete="given-name" placeholder="Adunni" required>
+                                    </div>
+                                    <div class="field">
+                                        <label for="lname">Last name</label>
+                                        <input type="text" id="lname" name="lname" autocomplete="family-name" placeholder="Okafor" required>
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="business">Business name</label>
+                                    <input type="text" id="business" name="business" autocomplete="organization" placeholder="Adunni Threads" required>
+                                </div>
+
+                                <div class="field">
+                                    <label for="email">Contact email</label>
+                                    <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+                                </div>
+
+                                <div class="field">
+                                    <label for="phone">Phone number</label>
+                                    <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="080 0000 0000" required>
+                                </div>
+
+                                <div class="field">
+                                    <label for="role">Which describes you?</label>
+                                    <select id="role" name="role" required>
+                                        <option value="" disabled selected>Choose one</option>
+                                        <option value="seller">I sell and arrange my own deliveries</option>
+                                        <option value="seller-rider">I sell and I have regular riders</option>
+                                        <option value="rider">I am a dispatch rider getting verified</option>
+                                        <option value="other">Something else</option>
+                                    </select>
+                                </div>
+
+                                <div class="field">
+                                    <label for="riders">How many riders do you work with? <span class="field-hint">(optional)</span></label>
+                                    <input type="number" id="riders" name="riders" min="0" max="500" inputmode="numeric" placeholder="2">
+                                </div>
+
+                                <div class="field">
+                                    <label for="notes">Anything we should know? <span class="field-hint">(optional)</span></label>
+                                    <textarea id="notes" name="notes" rows="4" placeholder="How you sell, where you deliver, and what usually goes wrong."></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn--primary btn--block">Send request</button>
+
+                                <p class="form-note">
+                                    This form is not yet connected to a mailbox. Until it is, please email
+                                    <a href="mailto:hello@trustrida.com">hello@trustrida.com</a> directly.
+                                </p>
+
+                            </form>
+
+                        </div>
+
+                        <p class="small muted" style="margin-top: var(--space-5); text-align: center;">
+                            Not ready yet? <a href="how-it-works.html">See how it works</a> or
+                            <a href="oluwatoks.html">look at a sample record</a> first.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <a class="logo" href="index.html" aria-label="TrustRida — home">
+                    <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="34" height="34">
+                    <span class="logo-word">Trust<span>Rida</span></span>
+                </a>
+                <p>Verified riders and a shared delivery record, so independent sellers and their buyers can both see what happened.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="Daelxsa.html">Why TrustRida</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="energy.html">Verification</a></li>
+                    <li><a href="oluwatoks.html">Sample Record</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="okakamushunu.html">Guide &amp; FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="erikah.html">Get Started</a></li>
+                    <li><a href="energy.html#report">Report a problem</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Reach us</h3>
+                <ul>
+                    <li><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></li>
+                    <li><a href="mailto:support@trustrida.com">support@trustrida.com</a></li>
+                    <li><p>Lagos, Nigeria</p></li>
+                </ul>
+            </div>
+
         </div>
 
-        <div class="form-group">
-          <label for="email">Contact email</label>
-          <input type="email" id="email" placeholder="alex.m@domain.com" required>
+        <div class="footer-bottom">
+            <div class="footer-bottom__inner">
+                <p>&copy; <span data-year>2026</span> TrustRida. All rights reserved.</p>
+                <p>Verification is information, not a guarantee of zero risk.</p>
+            </div>
         </div>
 
-        <div class="form-group">
-          <label for="service-type">Request type</label>
-          <select id="service-type" required>
-            <option value="" disabled selected>Choose a category...</option>
-            <option value="item-handover">Item Delivery & Handover</option>
-            <option value="service-booking">Service Booking Confirmation</option>
-            <option value="escrow-claim">Open Escalation Record</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="details">Transaction notes</label>
-          <textarea id="details" rows="3" placeholder="Add tracking numbers, delivery notes, or specific agreement details..."></textarea>
-        </div>
-
-        <button type="submit" class="btn-submit">Confirm & Proceed</button>
-        <p class="security-note">Form state stored locally for submission review.</p>
-      </form>
-    </div>
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="site-footer">
-      <div class="footer-container">
-          <div class="footer-brand">
-              <a href="index.html" class="logo">
-                  TrustRida
-              </a>
-              <p>
-                  Making small-trade deliveries safer,
-                  clearer, and more trustworthy.
-              </p>
-          </div>
-
-          <div class="footer-contact">
-              <h3>Contact</h3>
-              <p><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></p>
-              <p><a href="tel:+234">Support: support@trustrida.com</a></p>
-              <p>Nigeria</p>
-          </div>
-
-          <div class="footer-links">
-              <h3>Quick Links</h3>
-               <a href="index.html">Home</a>
-                <a href="Daelxsa.html">Why TrustRida</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="oluwatoks.html">The Details</a>
-                <a href="energy.html">Verrification</a>
-                <a href="okakamushunu.html">Guide & FAQ</a>
-                <a href="contact.html">Contact</a>
-          </div>
-      </div>
-
-      <div class="footer-bottom">
-          <p>
-              &copy; 2026 TrustRida. All rights reserved.
-          </p>
-      </div>
-  </footer>
+    </footer>
 
 </body>
+
 </html>

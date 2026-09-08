@@ -1,257 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trustrida — Guide & FAQ</title>
-<link rel="stylesheet" href="css/brand.css">
-<link rel="stylesheet" href="css/style.css">
-<style>
-  /* Page-specific styles — layer on top of brand.css / style.css.
-     Uses the brand's own variables (--trust-green, --deep-navy, etc.) */
-  header.faq-header {
-    padding: 40px 0 24px;
-  }
-  .eyebrow {
-    color: var(--trust-green);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    font-family: var(--display-font);
-  }
-  header.faq-header h1 {
-    font-size: 32px;
-    margin: 0 0 12px;
-  }
-  header.faq-header h1 span { color: var(--trust-green); }
-  .sub {
-    color: var(--deep-navy);
-    opacity: 0.75;
-    font-size: 16px;
-    margin: 0;
-  }
-  main.faq-main {
-    padding-bottom: 60px;
-  }
-  .category {
-    margin-top: 36px;
-  }
-  .category h2 {
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--trust-green);
-    margin-bottom: 14px;
-    font-family: var(--display-font);
-  }
-  .faq-item {
-    padding: 0;
-    margin-bottom: 12px;
-    overflow: hidden;
-  }
-  .faq-question {
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: none;
-    color: var(--deep-navy);
-    font-family: var(--display-font);
-    font-size: 16px;
-    font-weight: 700;
-    padding: 16px 24px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-  }
-  .faq-question::after {
-    content: "+";
-    color: var(--trust-green);
-    font-size: 20px;
-    flex-shrink: 0;
-    transition: transform 0.2s;
-  }
-  .faq-item.open .faq-question::after {
-    transform: rotate(45deg);
-  }
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.25s ease, padding 0.25s ease;
-    padding: 0 24px;
-    color: var(--deep-navy);
-    opacity: 0.8;
-    font-size: 15px;
-  }
-  .faq-item.open .faq-answer {
-    max-height: 300px;
-    padding: 0 24px 20px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#102a43">
+
+    <title>Guide &amp; FAQ | TrustRida</title>
+    <meta name="description" content="The real questions a first-time buyer asks before trusting a rider they have never met, answered plainly: trust, identity, payment, using the link and how we compare.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TrustRida">
+    <meta property="og:title" content="Guide &amp; FAQ | TrustRida">
+    <meta property="og:description" content="The real questions a first-time buyer asks before trusting a rider they have never met, answered plainly: trust, identity, payment, using the link and how we compare.">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/brand.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+
+    <script src="js/main.js" defer></script>
 </head>
+
 <body>
 
-<header class="site-header">
-  <div class="nav-container">
-    <a href="index.html" class="logo" aria-label="TrustRida home">TrustRida</a>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="Daelxsa.html">Why TrustRida</a>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="oluwatoks.html">The Details</a>
-      <a href="energy.html">Verrification</a>
-      <a href="okakamushunu.html" class="active" aria-current="page">Guide &amp; FAQ</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+    <header class="site-header">
+        <div class="nav-container">
 
-<header class="faq-header container">
-  <div class="eyebrow">Trustrida · Guide &amp; FAQ</div>
-  <h1>Questions before you <span>pay</span></h1>
-  <p class="sub">The real questions a first-time buyer asks before trusting a rider they've never met.</p>
-</header>
-
-<main class="faq-main container">
-
-  <div class="category">
-    <h2>Trust &amp; Identity</h2>
-
-    <div class="faq-item card">
-      <button class="faq-question">How do I know the rider on this page is the real person coming to my door?</button>
-      <div class="faq-answer">Trustrida shows a photo, government or company ID, and bike plate number tied to that specific delivery — not a general profile. Match the face and plate before you open your door.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">Can a seller just upload a fake ID to trick me?</button>
-      <div class="faq-answer">IDs are checked against the rider's registered details before a link goes live, so a mismatched or fake ID doesn't generate a valid page.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">What stops a scammer from sending me a screenshot instead of a real Trustrida link?</button>
-      <div class="faq-answer">Every real link opens live on Trustrida's site with current rider status — a screenshot can't do that. If it's not opening as a live page, don't trust it.</div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h2>Payment</h2>
-
-    <div class="faq-item card">
-      <button class="faq-question">Do I have to pay before I see the rider's details?</button>
-      <div class="faq-answer">No. You check the verification page first — photo, ID, plate, phone — before any money moves.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">Is my money protected if the rider never shows up?</button>
-      <div class="faq-answer">Trustrida confirms the rider is real and dispatched; it's not a payment escrow, so agree payment terms (part-payment, pay-on-arrival) directly with the seller.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">Why not just use bank transfer proof like before?</button>
-      <div class="faq-answer">Transfer receipts only prove money moved — they say nothing about who's bringing your goods. Trustrida verifies the person, not the payment.</div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h2>Using the Link</h2>
-
-    <div class="faq-item card">
-      <button class="faq-question">What if the link doesn't open or looks broken?</button>
-      <div class="faq-answer">That's a red flag — a real Trustrida page always loads. Don't proceed with payment until you get a working link.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">Does the rider change for every order, or is it the same person?</button>
-      <div class="faq-answer">Sellers can assign different riders per order, so always check the link for that specific delivery — don't assume it's the same rider as last time.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">Can I check the rider's status while the delivery is in progress?</button>
-      <div class="faq-answer">Yes, the page shows live dispatch clearance status, not just a one-time snapshot.</div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h2>Why This Over Alternatives</h2>
-
-    <div class="faq-item card">
-      <button class="faq-question">Why not just use Gokada or Chowdeck?</button>
-      <div class="faq-answer">Those apps verify riders for their own platform but don't give an independent seller a shareable proof link for buyers to check beforehand — Trustrida is built for that gap.</div>
-    </div>
-
-    <div class="faq-item card">
-      <button class="faq-question">I've been scammed before — why should I go first this time?</button>
-      <div class="faq-answer">You're not really "going first" — you're verifying the rider before payment, which is the whole point: proof before trust, not trust before proof.</div>
-    </div>
-  </div>
-
-</main>
-
-<footer class="site-footer">
-
-    <div class="footer-container">
-
-        <div class="footer-brand">
-
-            <a href="index.html" class="logo">
-                TrustRida
+            <a class="logo" href="index.html" aria-label="TrustRida — home">
+                <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="34" height="34">
+                <span class="logo-word">Trust<span>Rida</span></span>
             </a>
 
-            <p>
-                Making small-trade deliveries safer,
-                clearer, and more trustworthy.
-            </p>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+
+            <nav class="main-nav" id="primary-nav" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="Daelxsa.html">Why TrustRida</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="oluwatoks.html">The Details</a>
+                <a href="energy.html">Verification</a>
+                <a href="okakamushunu.html" class="active" aria-current="page">Guide &amp; FAQ</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="nav-cta">
+                <a class="btn btn--primary btn--sm" href="erikah.html">Get Started</a>
+            </div>
+
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- ============ PAGE HERO ============ -->
+        <section class="page-hero page-hero--center">
+            <div class="container">
+                <div class="page-hero__inner">
+                    <nav class="crumb crumb--invert" aria-label="Breadcrumb" style="justify-content: center;">
+                        <a href="index.html">Home</a>
+                        <span aria-hidden="true">/</span>
+                        <span aria-current="page">Guide &amp; FAQ</span>
+                    </nav>
+
+                    <p class="eyebrow eyebrow--invert">Guide &amp; FAQ</p>
+                    <h1>Questions before <em>you pay.</em></h1>
+                    <p>
+                        The real things a first-time buyer wants to know before trusting a
+                        rider they have never met &mdash; answered plainly, including the
+                        answers that are not entirely in our favour.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============ FAQ ============ -->
+        <section class="section section--sunken">
+            <div class="container">
+                <div class="faq-layout">
+
+                    <nav class="faq-nav" aria-label="FAQ categories">
+                        <h2>On this page</h2>
+                        <ul>
+                            <li><a href="#trust">Trust &amp; identity</a></li>
+                            <li><a href="#payment">Payment</a></li>
+                            <li><a href="#link">Using the link</a></li>
+                            <li><a href="#sellers">For sellers &amp; riders</a></li>
+                            <li><a href="#alternatives">Why this over alternatives</a></li>
+                        </ul>
+                    </nav>
+
+                    <div>
+
+                        <section class="faq-group" id="trust">
+                            <h2>Trust &amp; identity</h2>
+                            <div class="accordion">
+                                <div class="accordion-item is-open">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>How do I know the rider on this page is the real person coming to my door?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>TrustRida shows a photo, a government or company ID reference, and the bike plate number tied to that specific delivery &mdash; not a general profile. Match the face and the plate before you open your door or hand over money.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>Can a seller just upload a fake ID to trick me?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>IDs are checked against the rider&rsquo;s registered details before a link goes live, so a mismatched or fabricated ID does not generate a valid page. If a page will not load properly, treat that as the answer.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>What stops a scammer from sending me a screenshot instead of a real link?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>Every genuine link opens live on the TrustRida site and shows current rider status. A screenshot cannot update, and it cannot be opened as a page. If someone sends you an image instead of a working link, do not proceed.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>Does the rider change for every order, or is it the same person?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>Sellers can assign a different rider per order, so always open the link for that specific delivery. Do not assume it is the same rider as last time, even from a seller you have used before.</p></div>
+                        </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="faq-group" id="payment">
+                            <h2>Payment</h2>
+                            <div class="accordion">
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>Do I have to pay before I see the rider&rsquo;s details?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>No. You open the verification page first &mdash; photo, ID, plate, phone contact and dispatch status &mdash; before any money moves. That order is the entire point of the product.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>Is my money protected if the rider never shows up?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>We have to be straight with you here: TrustRida confirms that a rider is real and dispatched, but it is not a payment escrow and does not hold your money. Agree payment terms &mdash; part payment, pay on arrival &mdash; directly with the seller.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>Why not just use bank transfer proof like before?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>A transfer receipt only proves that money left your account. It says nothing about who is bringing your goods, or whether anything was ever collected. TrustRida verifies the person and records the handover, which is the half a receipt cannot cover.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>Does TrustRida take a cut of my payment?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>No. Payment happens between you and the seller as you agree it. TrustRida sits alongside the transaction as a record, not inside it as a middleman holding funds.</p></div>
+                        </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="faq-group" id="link">
+                            <h2>Using the link</h2>
+                            <div class="accordion">
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>What if the link does not open or looks broken?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>That is a red flag. A real TrustRida page always loads. Do not continue with payment until you have a working link you opened yourself, in your own browser.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>Can I check the rider&rsquo;s status while the delivery is in progress?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>Yes. The page shows live dispatch clearance and the current stage of the delivery, not a one-time snapshot taken when the link was created.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>Do I need to create an account or download an app?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>No. Opening a link needs nothing but a browser, and it is built to stay light on a slow connection. Only sellers setting up orders need an account.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>Who else can see the delivery record?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>Only people holding the link. Records are not listed publicly and are not searchable &mdash; the seller sends it to their buyer, and that is the audience.</p></div>
+                        </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="faq-group" id="sellers">
+                            <h2>For sellers &amp; riders</h2>
+                            <div class="accordion">
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>I am a seller. How long does setup take?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>Setting up your business and your regular riders is a one-time job. After that, opening an order and generating a link takes about two minutes, and less once your usual riders are saved.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>I am a rider. Do I have to verify for every seller I work with?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>No. You verify once, and your clearance status is then shown per delivery so buyers always see whether you are currently cleared &mdash; rather than a badge from months ago that means nothing today.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>What happens if a buyer refuses to confirm delivery?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>The record still shows that pickup happened and when, which is usually where a disagreement can be settled. It is evidence for a conversation, not an automatic enforcement mechanism &mdash; we do not pretend otherwise.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>Can I use TrustRida if I sell offline, at a market stall?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>Yes. Anything where goods move from you to someone who has not met you works the same way. The record does not care where the sale started.</p></div>
+                        </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="faq-group" id="alternatives">
+                            <h2>Why this over alternatives</h2>
+                            <div class="accordion">
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>Why not just use an established delivery app?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>Those apps verify riders well &mdash; for their own platform and their own orders. What they do not give an independent seller is a shareable link a buyer can check before deciding to pay. TrustRida is built for exactly that gap.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>I have been scammed before. Why should I go first this time?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>You are not really going first &mdash; you are verifying the rider before payment, which reverses the order the scam depends on. We will not tell you the risk is zero, because it is not. We will tell you what has been checked, and what has not.</p></div>
+                        </div>
+                                </div>
+                                <div class="accordion-item">
+                        <h3>
+                            <button class="accordion-trigger" type="button">
+                                <span>Is a verified badge not just another thing to fake?</span>
+                                <span class="accordion-icon" aria-hidden="true"></span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel">
+                            <div><p>It would be, if it were a badge on a profile. Ours is attached to a specific order, generated at the time, and only reachable through a live page. That is a much harder thing to counterfeit than an image.</p></div>
+                        </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="notice" style="margin-top: var(--space-7);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+                            <div>
+                                <h3>Still unsure about something?</h3>
+                                <p>If a delivery does not match its record, stop and <a href="energy.html#report">report it</a>. For anything else, <a href="contact.html">send us a message</a> &mdash; a real person reads them.</p>
+                            </div>
+                        </div>
+
+                                </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============ CTA ============ -->
+        <section class="section section--white">
+            <div class="container">
+                <div class="cta-band">
+                    <div class="cta-band__text">
+                        <h2>Ready to send a link your buyers can check?</h2>
+                        <p>Set up your business once and give every order a record both sides can open.</p>
+                                </div>
+                    <div class="btn-row">
+                        <a class="btn btn--invert" href="erikah.html">Get started</a>
+                        <a class="btn btn--ghost-invert" href="oluwatoks.html">See a sample record</a>
+                                </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <a class="logo" href="index.html" aria-label="TrustRida — home">
+                    <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="34" height="34">
+                                <span class="logo-word">Trust<span>Rida</span></span>
+                </a>
+                <p>Verified riders and a shared delivery record, so independent sellers and their buyers can both see what happened.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="Daelxsa.html">Why TrustRida</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="energy.html">Verification</a></li>
+                    <li><a href="oluwatoks.html">Sample Record</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="okakamushunu.html">Guide &amp; FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="erikah.html">Get Started</a></li>
+                    <li><a href="energy.html#report">Report a problem</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Reach us</h3>
+                <ul>
+                    <li><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></li>
+                    <li><a href="mailto:support@trustrida.com">support@trustrida.com</a></li>
+                    <li><p>Lagos, Nigeria</p></li>
+                </ul>
+            </div>
 
         </div>
 
-        <div class="footer-contact">
-
-            <h3>Contact</h3>
-
-            <p><a href="mailto:hello@trustrida.com">hello@trustrida.com</a></p>
-            <p><a href="tel:+234">Support: support@trustrida.com</a></p>
-            <p>Nigeria</p>
-
+        <div class="footer-bottom">
+            <div class="footer-bottom__inner">
+                <p>&copy; <span data-year>2026</span> TrustRida. All rights reserved.</p>
+                <p>Verification is information, not a guarantee of zero risk.</p>
+            </div>
         </div>
 
-        <div class="footer-links">
-
-            <h3>Quick Links</h3>
-
-            <a href="index.html">Home</a>
-          <a href="Daelxsa.html">Why TrustRida</a>
-          <a href="how-it-works.html">How It Works</a>
-          <a href="oluwatoks.html">The Details</a>
-          <a href="energy.html">Verrification</a>
-          <a href="okakamushunu.html" class="active" aria-current="page">Guide &amp; FAQ</a>
-            <a href="contact.html">Contact</a>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <p>
-            &copy; 2026 TrustRida. All rights reserved.
-        </p>
-
-    </div>
-
-</footer>
-
-<script>
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.parentElement.classList.toggle('open');
-    });
-  });
-</script>
+    </footer>
 
 </body>
+
 </html>
