@@ -36,7 +36,7 @@
   /* --- Text ------------------------------------------ */
   --ink: #102a43;
   --ink-muted: #52667d;
-  --ink-soft: #7d8fa3;
+  --ink-soft: #5f7186;
   --ink-invert: #ffffff;
   --ink-invert-muted: rgba(233, 241, 249, 0.72);
 
@@ -275,6 +275,10 @@ a:hover {
 }
 
 .section--tight { padding-block: clamp(48px, 6vw, 72px); }
+
+/* Consecutive tight sections on the same background read as one continuous
+   document, so collapse the doubled padding between them. */
+.section--tight + .section--tight { padding-top: 0; }
 .section--cream { background: var(--surface-cream); }
 .section--sunken { background: var(--surface-sunken); }
 .section--white { background: var(--surface); }
